@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Upload Resume</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="{{ url_for('static', filename='css/topcruit.css') }}" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+ </head>
+    <body>
+        <header class="header">
+            <a href="home.html"><img src="{{ url_for('static', filename='images/Logo.png') }}" class="logo"></a>
+            <div class="resume_profile">
+                 <a href="upload_resume.html">Upload Resume</a>
+                 <img src="{{ url_for('static', filename='images/Profile.png') }}">
+            </div>
+        </header>
+
+        <main>
+            <div class="upload_resume">
+                <h1>Upload Resume</h1>
+                <div id="jobDetails">
+                    {% if job_code %}
+                    <div class="job-info">
+                        <p><strong>Job Code:</strong> {{ job_code }}</p>
+                        {% if company %}<p><strong>Company:</strong> {{ company }}</p>{% endif %}
+                        {% if job_name %}<p><strong>Position:</strong> {{ job_name }}</p>{% endif %}
+                    </div>
+                    {% endif %}
+                </div>
+
+                <form action="{{ url_for('upload_file') }}" method="POST" enctype="multipart/form-data">
+                    <div class="dropzone" id="dropzone">
+                        <i class="fas fa-file-upload"></i>
+                        <p>Drag and drop a file here, or</p>
+                        <button type="button" onclick="document.getElementById('fileInput').click()">Browse files</button>
+                        <input type="file" id="fileInput" name="file" hidden>
+                    </div>
+
+                    <div id="fileNameDiv">
+                        <p id="fileName">File Name: </p>
+                    </div>
+                    <button class="btn_primary" type="submit">Submit</button>
+                </form>
+            </div>
+        </main>
+
+
+
+        <footer class="footer">
+            <div class="footer_top">
+                <div class="footer_col">
+                    <ul>
+                        <h4>About Us</h4>
+                        <li><a href="#">Our Story</a></li>
+                        <li><a href="#">Our Team</a></li>
+                    </ul>
+                </div>
+                <div class="footer_col">
+                    <ul>
+                        <h4>Contact Us</h4>
+                        <li><a href="#">Support</a></li>
+                        <li><a href="#">Partnerships</a></li>
+                    </ul>
+                </div>
+                <div class="footer_col">
+                    <ul>
+                        <h4>Resources</h4>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">FAQs</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="footer_divide">
+            <div class="footer_bottom">
+                <h4>©2025 TopCruit. All rights reserved</h4>
+                <div class="footer_link">
+                    <a href="#">Terms of Use</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Cookie Settings</a>
+                    <a href="#">Sitemap</a>
+                </div>
+                <ul>
+                    <div class="social_links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </ul>
+            </div>
+        </footer>
+            <script>
+              //Dropzone Logic
+              const dropzone = document.getElementById('dropzone');
+              const fileInput = document.getElementById('fileInput');
+
+              if (dropzone && fileInput) {
+                dropzone.addEventListener('click', () => fileInput.click());
+
+                dropzone.addEventListener('dragover', (e) => {
+                  e.preventDefault();
+                  dropzone.style.backgroundColor = "#e0f7ff";
+                });
+
+                dropzone.addEventListener('dragleave', () => {
+                  dropzone.style.backgroundColor = "";
+                });
+
+                dropzone.addEventListener('drop', (e) => {
+                  e.preventDefault();
+                  dropzone.style.backgroundColor = "";
+                  const files = e.dataTransfer.files;
+                  fileInput.files = files;
+                  console.log('Dropped files:', files);
+                });
+              }
+              document.getElementById('fileInput').addEventListener('change', function() {
+                if (this.files.length > 0) {
+                    document.getElementById('fileName').textContent = 'Selected file: ' + this.files[0].name;
+                }
+              });
+        </script>
+    </body>
+</html>
