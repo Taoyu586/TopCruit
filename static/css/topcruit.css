@@ -1,0 +1,793 @@
+* {
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+
+}
+
+img, video {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Header */
+.header {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    background: #0077B6;
+    padding: 15px 25px;
+    max-width: 100%;
+    width: 100%;
+}
+
+.logo_title {
+    display: flex;
+    align-items: center;
+    padding-right: 1em;
+}
+
+.logo_recruiter {
+    display: flex;
+    align-items: center;
+    padding-right: 12.5em;
+}
+
+.company {
+    width: auto;
+    height: clamp(1em, 2.5vw, 1.3em);
+    margin: 0;
+}
+
+.nav_link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 70px;
+    margin: 0 auto;
+}
+
+.nav_link a {
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(0.8em, 2.5vw, 1.1em);
+    color: #ffffff;
+    font-weight: 500;
+}
+
+.nav_link a:hover {
+    color:rgb(223, 223, 223);
+}
+
+.resume_profile {
+    display:flex;
+    align-items: center;
+    color:#ffffff;
+    gap: 10px;
+}
+
+.resume_profile a {
+    font-weight: 500;
+    font-size: clamp(0.8em, 2.5vw, 1.1em);
+    text-decoration: none;
+    color:#ffffff;
+}
+
+.resume_profile a:hover {
+    color:rgb(223, 223, 223);
+}
+
+.resume_profile img, .logo {
+    height: clamp(2em, 2.5vw, 2.5em);
+    width: auto;
+    margin: 0 1em;
+    display: block;
+}
+.hamburger {
+    display: none;
+    font-size: 2em;
+    color: white;
+    cursor: pointer;
+}
+.mobile_menu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background-color: #0077B6;
+    width: 200px;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    z-index: 1000;
+}
+
+.mobile_menu.show {
+  display: block;
+}
+.mobile_menu a {
+    color: white;
+    padding: 10px 0;
+    text-decoration: none;
+}
+
+.mobile_menu a:hover {
+    background-color: #005f87;
+}
+
+/* Body */
+body {
+    line-height: 1.5;
+    font-family: 'Poppins', sans-serif;
+}
+
+button {
+    font-size: 1.1em;
+    font-weight: 600;
+    border-radius: 20px;
+    color:#ffffff;
+    padding: 13px 0;
+    width: 30vw;
+    min-width: 150px;
+    max-width: 200px;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: all 0.3 ease;
+}
+
+button:hover {
+    color:#0077B6;
+    background-color:#ffffff;
+    border: solid 2px #0077B6;
+}
+
+h1 {
+    font-size: 2.4em;
+}
+
+/* Home */
+.home_content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 150px 0;
+    gap: 50px;
+}
+
+.home_pic, .signup_pic {
+    width: 500px;
+    min-height: 200px;
+    border-radius: 15px;
+    max-width: 100%
+}
+
+.home_description {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    left: 0;
+    text-align: left;
+    justify-content: center;
+    margin: 0 10px;
+    width: 100%;
+    max-width: 500px;
+    gap: 10px;
+}
+
+.home_description h1 {
+    font-size: 3em;
+    line-height: 1;
+    margin: 0;
+}
+
+.home_description h3 {
+    text-wrap: wrap;
+    margin-bottom: 20px;
+}
+.home_description h1:not(:first-child) {
+    margin-bottom: 20px;
+}
+
+.home_button {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.btn_primary {
+    background: #0077B6;
+}
+
+.btn_secondary {
+    background: rgba(0, 119, 182, 0.5);
+}
+
+/* Profile */
+.profile {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 180px 0;
+    gap: 30px;
+}
+
+.profile_button {
+    display: flex;
+    gap: 20px;
+}
+
+/* Sign Up / Job Code */
+.signup {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 100px 40px;
+    gap: 20px;
+}
+
+.signup_content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 35%;
+    gap: 35px;
+}
+
+.jobcode {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 90px 0;
+    gap: 30px;
+}
+
+.signup_button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 30vw;
+}
+
+.signup_button button {
+    width: 40vw;
+    max-width: 300px;
+}
+
+.jobcode_input {
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 0 auto;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+.jobcode button {
+    margin: 0;
+}
+
+#jobCode {
+    padding: 16px;
+    font-size: 16px;
+    border-radius: 15px;
+    width: 100%;
+}
+
+/* Candidate/Recruiter Sign Up/Login */
+.form_container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 0;
+}
+
+.form_row {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+}
+
+form {
+    width: 30%;
+    min-width: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+    padding: 30px 40px 40px 40px;
+    border: 1px solid black;
+    border-radius: 10px;
+    gap: 10px;
+}
+
+form input {
+    width: 100%;
+    padding: 12px;
+    margin: 5px 0;
+    border-radius: 10px;
+    background-color: #e8ebf1;
+    border: 1px solid transparent;
+    font-size: 14px;
+}
+
+form button {
+    min-width: 100%;
+    border-radius: 5px;
+    padding: 8px;
+    margin: 10px;
+    font-size: 18px;
+}
+
+form h2 {
+    font-size: 1.7em;
+    font-weight: 400;
+}
+
+form h3 {
+    font-weight: 300;
+    margin: 0 0 8px 0;
+}
+
+form p {
+    font-size: 14px;
+}
+
+.or_divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #888;
+    margin: 10px 0;
+    width: 100%;
+}
+
+.or_divider::before, .or_divider::after {
+    content:'';
+    flex: 1;
+    border-bottom: 1px solid #888;
+    margin: 0 10px;
+}
+
+.alt_login {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+}
+
+.facebook_login, .google_login {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.facebook_login {
+    background-color: #1877F2;
+}
+
+.google_login {
+    background-color: #ffffff;
+    border: 1px solid #888;
+}
+
+.alt_login a {
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.facebook_login a {
+    color: #ffffff;
+}
+
+.google_login a {
+    color: #040000;
+}
+
+.facebook_login i{
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.google_icon {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.invoice {
+    margin-top: 8px;
+    font-size: 16px;
+}
+
+.dropzone {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color:#888;
+    border: 2px dashed #0077B6;
+    padding: 20px 125px;
+    text-align: center;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    width: 100%;
+}
+
+.dropzone p {
+    font-size: 12px;
+}
+
+.dropzone:hover {
+    background-color: #f0f8ff;
+}
+
+.dropzone button {
+    background-color: #0077B680;
+    padding: 4px;
+    font-size: 12px;
+    width: 80%;
+    margin: 0px;
+    margin-top: 15px;
+}
+
+.dropzone button:hover {
+    color: #ffffff;
+}
+
+.dropzone i {
+    font-size: 20px;
+    color: #0077B680;
+    margin-bottom: 10px;
+}
+
+/* Personal Details */
+form select,
+form input[list] {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    margin: 0 0 8px 0;
+    padding: 10px;
+}
+
+.personal_button {
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+}
+
+/* Upload Resume */
+.upload_resume {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 0;
+    gap: 15px;
+    font-size: 20px;
+}
+
+.upload_resume form {
+    width: 100%;
+    min-width: initial;
+    margin: 0;
+    padding: 0;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    background: transparent;
+}
+
+/* Override the general form styles for this specific use case */
+.upload_resume form button.btn_primary {
+    min-width: 200px;
+    width: auto;
+    border-radius: 20px;
+}
+
+.upload_resume h1 {
+    font-size: 1.6em;
+}
+.upload_resume h3 {
+    color:#0077B6;
+    font-weight: 500;
+}
+.upload_resume .dropzone {
+    margin: 13px;
+    width: 50%;
+    padding: 60px;
+}
+
+.upload_resume .dropzone p, button {
+    font-size: 18px;
+}
+
+.upload_resume .dropzone i {
+    font-size: 30px;
+}
+
+.upload_resume button {
+    font-size: 18px;
+}
+
+/* Job Card */
+.jobCard {
+    border: 1px solid #ccc;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+/* Dashboard */
+.dashboard_content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 80px 0;
+}
+
+.dashboard_job {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.dashboard_button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 20%;
+    gap: 20px;
+}
+
+.dashboard_button button {
+    width: 100%;
+    border-radius: 10px;
+    padding: 25px;
+}
+
+.dashboard_button button:first-of-type{
+    background-color: #b6daeb;
+}
+
+.dashboard_button button:hover:first-of-type{
+    background-color: #ffffff;
+}
+
+#job_search {
+    width: 100%;
+    padding: 10px 20px;
+    margin: 10px 0;
+    font-size: 17px;
+}
+
+/* Footer */
+.footer{
+    background-color: #B0C4DE;
+    padding: 40px 0;
+}
+
+.footer ul {
+    list-style:none;
+}
+
+.footer_top {
+    display: flex;
+    margin-bottom: 40px;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer_col {
+    display: flex;
+    justify-content: center;
+    width: 15%;
+    padding: 0 20px;
+}
+
+.footer_col h4 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 17px;
+    color: black;
+    margin-bottom: 20px;
+    font-weight: 500;
+    position: relative;
+
+}
+
+.footer_col h4::before{
+    content: ' ';
+    position:absolute;
+    left: 0;
+    bottom: -10px;
+    background-color: #0077B6;
+    height: 1px;
+    box-sizing: border-box;
+    width: 90px;
+}
+
+.footer_col ul li:not(:last-child){
+    margin-bottom: 10px;
+}
+
+.footer_col ul li a{
+    font-size: 16px;
+    text-decoration: none;
+    font-weight: 300;
+    color: black;
+    display: block;
+    transition: all 0.3s ease;
+}
+
+.footer_col ul li a:hover{
+    color: #ffffff;
+    padding-left: 8px;
+}
+
+.footer_divide {
+    border: 1px solid #0077B6;
+    width: 80%;
+    margin: 20px auto;
+
+}
+
+.footer_bottom {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 30px;
+
+}
+
+.footer_bottom h4 {
+      font-weight: 200;
+}
+
+.footer_link {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}
+
+.footer_link a {
+    font-size: 15px;
+    text-decoration: none;
+    font-weight: 300;
+    color: black;
+    transition: all 0.3s ease;
+}
+
+.footer_link a:hover{
+    color: #ffffff;
+    padding-left: 8px;
+}
+
+.footer_link a:not(:first-child)::before {
+  content: "|";
+  margin: 0 8px;
+  color: #0077B6;
+}
+
+.footer_bottom .social_links a{
+    display:inline-block;
+    height: 40px;
+    width: 40px;
+    background-color: #0077B6;
+    margin: 0 10px 10px 0;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 50%;
+    color: #ffffff;
+    transition: all 0.5s ease;
+}
+
+.footer_bottom .social_links a:hover{
+    color: #0077B6;
+    background-color: #ffffff;
+}
+
+/* Resize */
+@media(max-width: 900px) {
+     .nav_link, .resume_profile {
+        display: none;
+    }
+    .hamburger {
+        display: block;
+    }
+    .mobile_menu.show {
+        display: flex;
+    }
+
+    .mobile_menu a {
+        color: white;
+        padding: 10px 0;
+        text-decoration: none;
+    }
+}
+@media(max-width: 767px) {
+    .header {
+        padding: 10px 10px;
+    }
+
+    .home_description {
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+    }
+    .footer_col {
+        width: 70%;
+        margin-bottom: 30px;
+    }
+}
+
+@media(max-width: 574px) {
+    .header {
+        gap: 15px;
+    }
+    .home_button button{
+        height: 11vh;
+    }
+    .footer_top {
+        margin-bottom: 0;
+    }
+    .footer_col {
+        width: 40%;
+        margin-bottom: 30px;
+    }
+    .footer_col:first-child{
+        margin-left: 8px;
+    }
+}
+@media(max-width: 450px){
+    .footer_top {
+        margin-bottom: 0;
+        flex-wrap: wrap;
+    }
+}
+@media (min-width: 900px) {
+  .hamburger {
+    display: none;
+  }
+
+  .mobile_menu {
+    display: none !important;
+  }
+}
+
