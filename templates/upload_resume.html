@@ -9,7 +9,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
- </head>
+    </head>
     <body>
         <header class="header">
             <a href="home.html"><img src="{{ url_for('static', filename='images/Logo.png') }}" class="logo"></a>
@@ -32,11 +32,12 @@
                     {% endif %}
                 </div>
 
-                <form action="{{ url_for('upload_file') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ url_for('upload_file') }}"  method="POST" enctype="multipart/form-data">
                     <div class="dropzone" id="dropzone">
                         <i class="fas fa-file-upload"></i>
                         <p>Drag and drop a file here, or</p>
-                        <button type="button" onclick="document.getElementById('fileInput').click()">Browse files</button>
+                        <!-- <button type="button" onclick="document.getElementById('fileInput').click()">Browse files</button> -->
+                        <button type="button" id="browseBtn">Browse files</button>
                         <input type="file" id="fileInput" name="file" hidden>
                     </div>
 
@@ -97,9 +98,19 @@
               //Dropzone Logic
               const dropzone = document.getElementById('dropzone');
               const fileInput = document.getElementById('fileInput');
+              const browseBtn = document.getElementById('browseBtn'); //new
 
-              if (dropzone && fileInput) {
-                dropzone.addEventListener('click', () => fileInput.click());
+              if (dropzone && fileInput && browseBtn) {
+                browseBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    fileInput.click();
+                });
+
+                dropzone.addEventListener('click', (e) => {
+                    if (e.target !== browseBtn) {
+                        fileInput.click();
+                    }
+                });
 
                 dropzone.addEventListener('dragover', (e) => {
                   e.preventDefault();
