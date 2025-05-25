@@ -82,11 +82,13 @@ def save_result(result, jobCode, filename="results.json"):
             except json.JSONDecodeError:
                 all_results = {}
     else:
+        all_results = {}
         print("File not found")
 
     existing_keys = [i for i in all_results.keys() if i.startswith(f"{jobCode}-")]
     numbers = [int(k.split('-')[1]) for k in existing_keys]
-    counter = max(numbers) + 1
+    if numbers:
+        counter = max(numbers) + 1
 
     result_key = f"{jobCode}-{counter}"
 
@@ -283,6 +285,7 @@ def upload_file():
 
     result = None
     error = None
+    result_key = None
     debug_info = {}
 
     if request.method == 'POST':
@@ -311,6 +314,9 @@ def upload_file():
                     debug_info['error_details'] = parsing_result.get('details', 'No details')
                     print(f"Error found: {error}")
                 else:
+                    # Save the result to JSON file
+                    result_key = save_result(parsing_result, job_code)
+
                     # Format the result as pretty JSON
                     try:
                         result = json.dumps(parsing_result, indent=2)

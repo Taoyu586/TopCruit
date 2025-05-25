@@ -14,7 +14,7 @@
         <header class="header">
             <a href="home.html"><img src="{{ url_for('static', filename='images/Logo.png') }}" class="logo"></a>
             <div class="resume_profile">
-                 <a href="upload_resume.html">Upload Resume</a>
+                 <a href="/upload_resume">Upload Resume</a>
                  <img src="{{ url_for('static', filename='images/Profile.png') }}">
             </div>
         </header>
@@ -32,7 +32,7 @@
                     {% endif %}
                 </div>
 
-                <form action="{{ url_for('upload_file') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ url_for('upload_file') }}"  method="POST" enctype="multipart/form-data">
                     <div class="dropzone" id="dropzone">
                         <i class="fas fa-file-upload"></i>
                         <p>Drag and drop a file here, or</p>
