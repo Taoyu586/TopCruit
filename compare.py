@@ -139,75 +139,72 @@ def compare_candidates_with_gemini(candidate1_data, candidate2_data, job_details
         return {"error": str(e)}
 
 
-@compare_candidates_bp.route('/compare_candidates', methods=['GET','POST'])
-def compare_candidates_route():
-    job_code = session.get("Job Code")
-    if not job_code:
-        flash("No job content. Please select a job from dashboard.", "warning")
-        return redirect(url_for("dashboard"))
-    
-    company = session.get("company")
-    jobName = session.get("jobName")
+def compare_route(app):
+    @app.route('/compare_candidates', methods=['POST'])
+    def compare_candidates_route():
+        job_code = session.get("Job Code")
+        if not job_code:
+            flash("No job content. Please select a job from dashboard.", "warning")
+            return redirect(url_for("dashboard"))
+        
+        company = session.get("company")
+        jobName = session.get("jobName")
 
-    candidate1_key = request.form.get('candidate1')
-    candidate2_key = request.form.get('candidate2')
+        candidate1_key = request.form.get('candidate1')
+        candidate2_key = request.form.get('candidate2')
 
-    comparison_result = None
-    error = None
+        comparison_result = None
+        error = None
 
-    if not candidate1_key or not candidate2_key:
-        error = "Please select 2 candidates to compare"
-        flash(error, "danger")
-    elif candidate1_key == candidate2_key:
-        error = "Please select 2 different candidates to compare"
-        flash(error, "danger")
-    else:
-        if not (candidate1_key.startswith(f"{job_code}-")) and candidate2_key.startswith(f"{job_code}-"):
-            error = "Invalid selection: candidates must be from the same job application"
+        if not candidate1_key or not candidate2_key:
+            error = "Please select 2 candidates to compare"
+            flash(error, "danger")
+        elif candidate1_key == candidate2_key:
+            error = "Please select 2 different candidates to compare"
+            flash(error, "danger")
         else:
-            candidate1_data = get_candidate_results(candidate1_key)
-            candidate2_data = get_candidate_results(candidate2_key)
-
-            if not candidate1_data:
-                error = f"Candidate data not found for {candidate1_key}. Please ensure the resume was parsed correctly"
-                flash(error, "danger")
-            elif not candidate2_data:
-                error = f"Candidate data not found for {candidate2_key}. Please ensure the resume was parsed correctly"
-                flash(error, "danger")
+            if not (candidate1_key.startswith(f"{job_code}-")) and candidate2_key.startswith(f"{job_code}-"):
+                error = "Invalid selection: candidates must be from the same job application"
             else:
-                job_details = get_job_details(job_code)
-                if not job_details:
-                    error = "Job details not found for this code. Cannot perform comparison. Try again."
+                candidate1_data = get_candidate_results(candidate1_key)
+                candidate2_data = get_candidate_results(candidate2_key)
+
+                if not candidate1_data:
+                    error = f"Candidate data not found for {candidate1_key}. Please ensure the resume was parsed correctly"
+                    flash(error, "danger")
+                elif not candidate2_data:
+                    error = f"Candidate data not found for {candidate2_key}. Please ensure the resume was parsed correctly"
                     flash(error, "danger")
                 else:
-                    print(f"Comparing {candidate1_key} and {candidate2_key} for job {job_code}")
-                    comparison_result = compare_candidates_with_gemini(candidate1_data, candidate2_data, job_details, API_KEY)
-
-                    if isinstance(comparison_result, dict) and "error" in comparison_result:
-                        error = f"Comparison failed: {comparison_result['error']}"
-                        if 'raw_api_text' in comparison_result:
-                            error += f"\nDetails: {comparison_result['raw_api_text'][:200]}..."
-                        flash(f"Error during comparison: {error}", "danger")
-                        comparison_result = None
+                    job_details = get_job_details(job_code)
+                    if not job_details:
+                        error = "Job details not found for this code. Cannot perform comparison. Try again."
+                        flash(error, "danger")
                     else:
-                        flash("Candidates compared successfully!", "success")
+                        print(f"Comparing {candidate1_key} and {candidate2_key} for job {job_code}")
+                        comparison_result = compare_candidates_with_gemini(candidate1_data, candidate2_data, job_details, API_KEY)
 
-    if error:
-        return redirect(url_for('job_details_page', job_code=job_code))
+                        if isinstance(comparison_result, dict) and "error" in comparison_result:
+                            error = f"Comparison failed: {comparison_result['error']}"
+                            if 'raw_api_text' in comparison_result:
+                                error += f"\nDetails: {comparison_result['raw_api_text'][:200]}..."
+                            flash(f"Error during comparison: {error}", "danger")
+                            comparison_result = None
+                        else:
+                            flash("Candidates compared successfully!", "success")
+
+        if error:
+            return redirect(url_for('job_details_page', job_code=job_code))
+        
+        return render_template(
+            'conpare.html',
+            job_code=job_code,
+            company=company,
+            job_name=jobName,
+            candidate1_name=candidate1_data.get('name',candidate1_key),
+            candidate2_name=candidate2_data.get('name',candidate2_key),
+            comparison_result=comparison_result,
+            error=error,
+        )
     
-    return render_template(
-        'conpare.html',
-        job_code=job_code,
-        company=company,
-        job_name=jobName,
-        candidate1_name=candidate1_data.get('name',candidate1_key),
-        candidate2_name=candidate2_data.get('name',candidate2_key),
-        comparison_result=comparison_result,
-        error=error,
-    )
-
-
-# @app.route('/compare_candidates', methods=['GET'])
-# # def compare_candidates():
-
-
+    
