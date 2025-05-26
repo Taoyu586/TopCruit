@@ -94,13 +94,13 @@
                 </ul>
             </div>
         </footer>
-            <script>
-              //Dropzone Logic
-              const dropzone = document.getElementById('dropzone');
-              const fileInput = document.getElementById('fileInput');
-              const browseBtn = document.getElementById('browseBtn'); //new
+        <script>
+            //Dropzone Logic
+            const dropzone = document.getElementById('dropzone');
+            const fileInput = document.getElementById('fileInput');
+            const browseBtn = document.getElementById('browseBtn'); //new
 
-              if (dropzone && fileInput && browseBtn) {
+            if (dropzone && fileInput && browseBtn) {
                 browseBtn.addEventListener('click', (e) => {
                     e.stopPropagation();
                     fileInput.click();
@@ -128,12 +128,12 @@
                   fileInput.files = files;
                   console.log('Dropped files:', files);
                 });
-              }
-              document.getElementById('fileInput').addEventListener('change', function() {
+            }
+            document.getElementById('fileInput').addEventListener('change', function() {
                 if (this.files.length > 0) {
                     document.getElementById('fileName').textContent = 'Selected file: ' + this.files[0].name;
                 }
-              });
+            });
         </script>
     </body>
 </html>
