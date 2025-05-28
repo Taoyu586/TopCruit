@@ -173,5 +173,112 @@
     "quick summary": "Alex Rivers is a cybersecurity enthusiast with a strong academic background (3.92 CGPA) and proven experience in hackathons and business case competitions.  He possesses a range of technical skills including programming languages (Python, Java), networking tools (Cisco Packet Tracer), and cybersecurity platforms (TryHackMe).  His personal projects demonstrate initiative and practical application of skills.",
     "rating": 7,
     "Rejection or Acceptance Letter": "Dear Alex,\n\nThank you for your interest in the Cybersecurity Professional position at [Company Name]. We were impressed by your academic achievements, technical skills, and demonstrated passion for cybersecurity. Your personal projects, particularly the resume parsing app and honeypot setup, showcase your initiative and practical skills.  While your experience is primarily academic and project-based, we believe your potential is significant. We would like to invite you for an interview to discuss your qualifications further.\n\nSincerely,\n[Hiring Manager Name]"
+  },
+  "WJBISQ-4": {
+    "name": "Maria Chen",
+    "email": null,
+    "phone": null,
+    "location": null,
+    "skills": [
+      "Penetration Testing",
+      "SIEM",
+      "Wireshark",
+      "Nmap"
+    ],
+    "education": [
+      "BEng in Software Engineering - GHI Tech"
+    ],
+    "experience": [
+      "Implemented a REST API for an e-commerce platform."
+    ],
+    "quick summary": "Maria Chen is a prospective Information Security Engineer with a BEng in Software Engineering from GHI Tech.  Her skills include penetration testing, SIEM, Wireshark, and Nmap. She has experience implementing a REST API for an e-commerce platform.",
+    "rating": 6,
+    "Rejection or Acceptance Letter": "Dear Maria,\n\nThank you for your interest in the Information Security Engineer position at [Company Name]. While your background in software engineering and familiarity with security tools like Wireshark and Nmap are promising, your resume lacks detailed information on your experience in cybersecurity roles. To strengthen your application, we encourage you to highlight relevant projects or work experience that demonstrate your practical skills in penetration testing and SIEM implementation. We wish you the best in your job search.\n\nSincerely,\n[Hiring Manager Name]"
+  },
+  "XMVKQQ-1": {
+    "name": "Lucas Smith",
+    "email": null,
+    "phone": null,
+    "location": null,
+    "skills": [
+      "Penetration Testing",
+      "Metasploit",
+      "Wireshark",
+      "Firewalls",
+      "Python"
+    ],
+    "education": [
+      {
+        "degree": "MSc in Data Science",
+        "university": "DEF University"
+      }
+    ],
+    "experience": [],
+    "quick summary": "Lucas Smith is a candidate with an MSc in Data Science from DEF University.  His skills include penetration testing, using tools like Metasploit and Wireshark, and experience with firewalls. He has a project demonstrating intrusion detection system development using Python.",
+    "rating": 6,
+    "Rejection or Acceptance Letter": "Dear Lucas,\n\nThank you for your interest in the Cybersecurity Engineer position at [Company Name]. We appreciate you taking the time to submit your application.\n\nWhile your academic background and demonstrated skills in Python and security tools are promising, we require candidates with more extensive professional experience in cybersecurity for this role.  We wish you the best in your job search.\n\nSincerely,\n[Hiring Manager Name]\n[Company Name]"
+  },
+  "XMVKQQ-2": {
+    "name": "ALEX RIVERS",
+    "email": "alex.rivers@email.com",
+    "phone": "(601) 123-4567",
+    "location": "123 Tech Avenue, Kuala Lumpur, MY",
+    "skills": [
+      "Python",
+      "Java",
+      "HTML",
+      "CSS",
+      "Cisco Packet Tracer",
+      "TryHackMe",
+      "Git",
+      "Linux",
+      "Networking",
+      "Data Structures",
+      "Intrusion Detection",
+      "Generative AI",
+      "Analytical Thinking",
+      "Leadership",
+      "Problem-solving"
+    ],
+    "education": [
+      {
+        "institution": "Sunway University",
+        "degree": "Foundation in Science and Technology",
+        "cgpa": "3.92"
+      }
+    ],
+    "experience": [
+      {
+        "title": "Winner, SUSTHack Hackathon",
+        "description": "A cross-institutional event by Sunway University & Singapore Polytechnic"
+      },
+      {
+        "title": "Winner, EY Business Case Competition",
+        "description": "Led a winning team in solving real-world business challenges"
+      },
+      {
+        "title": "Community Service",
+        "description": "Active in community service projects including food banks and national religious organizations"
+      },
+      {
+        "title": "Committee Member, Sunway Photography Club",
+        "description": "Organized campus-wide photo walks and exhibitions"
+      },
+      {
+        "title": "Resume Parsing App",
+        "description": "Uses Generative AI to enhance ATS efficiency and streamline hiring pipelines (Personal Project)"
+      },
+      {
+        "title": "Home Lab with Honeypot",
+        "description": "Built to analyze attacker behavior and implement intrusion detection (Personal Project)"
+      },
+      {
+        "title": "Inventory Management System",
+        "description": "Designed and deployed for small retail operations using web technologies (Personal Project)"
+      }
+    ],
+    "quick summary": "Alex Rivers is a cybersecurity enthusiast with a strong academic background (3.92 CGPA) and proven experience in hackathons and business case competitions.  He possesses a range of technical skills including programming languages (Python, Java), networking tools (Cisco Packet Tracer), and cybersecurity platforms (TryHackMe).  His personal projects demonstrate initiative and practical application of skills, particularly in areas like generative AI and intrusion detection.",
+    "rating": 7,
+    "Rejection or Acceptance Letter": "Dear Alex,\n\nThank you for your interest in the Cybersecurity Professional position at [Company Name]. We were impressed by your academic achievements, your participation in hackathons and competitions, and your personal projects demonstrating practical application of cybersecurity principles.  While your skills and enthusiasm are promising, we have decided to move forward with candidates who possess more direct professional experience in the field. We wish you the best in your job search.\n\nSincerely,\n[Hiring Manager Name]"
   }
 }
