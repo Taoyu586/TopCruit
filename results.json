@@ -1,0 +1,177 @@
+{
+  "WJBISQ-1": {
+    "name": "ALEX RIVERS",
+    "email": "alex.rivers@email.com",
+    "phone": "(601) 123-4567",
+    "location": "123 Tech Avenue, Kuala Lumpur, MY",
+    "skills": [
+      "Python",
+      "Java",
+      "HTML",
+      "CSS",
+      "Cisco Packet Tracer",
+      "TryHackMe",
+      "Git",
+      "Linux",
+      "Networking",
+      "Data Structures",
+      "Intrusion Detection",
+      "Generative AI",
+      "Analytical Thinking",
+      "Leadership",
+      "Problem-solving"
+    ],
+    "education": [
+      {
+        "degree": "Foundation in Science and Technology",
+        "university": "Sunway University",
+        "cgpa": "3.92"
+      }
+    ],
+    "experience": [
+      {
+        "title": "Winner, SUSTHack Hackathon",
+        "description": "A cross-institutional event by Sunway University & Singapore Polytechnic"
+      },
+      {
+        "title": "Winner, EY Business Case Competition",
+        "description": "Led a winning team in solving real-world business challenges"
+      },
+      {
+        "title": "Community Service",
+        "description": "Active in community service projects including food banks and national religious organizations"
+      },
+      {
+        "title": "Committee Member, Sunway Photography Club",
+        "description": "Organized campus-wide photo walks and exhibitions"
+      },
+      {
+        "title": "Resume Parsing App",
+        "description": "Uses Generative AI to enhance ATS efficiency and streamline hiring pipelines (Personal Project)"
+      },
+      {
+        "title": "Home Lab with Honeypot",
+        "description": "Built to analyze attacker behavior and implement intrusion detection (Personal Project)"
+      },
+      {
+        "title": "Inventory Management System",
+        "description": "Designed and deployed for small retail operations using web technologies (Personal Project)"
+      }
+    ],
+    "quick summary": "Alex Rivers is a cybersecurity enthusiast with a strong academic background (3.92 CGPA) and proven experience in hackathons and business competitions.  He possesses a range of technical skills including programming languages (Python, Java), networking tools (Cisco Packet Tracer), and cybersecurity platforms (TryHackMe).  His personal projects demonstrate initiative and practical application of skills.",
+    "rating": 7,
+    "Rejection or Acceptance Letter": "Dear Alex,\n\nThank you for your interest in the Cybersecurity Professional position at [Company Name]. We were impressed by your academic achievements, technical skills, and demonstrated passion for cybersecurity. Your personal projects, particularly the resume parsing app and honeypot setup, showcase your initiative and practical skills.  While your experience is primarily academic and project-based, we believe your potential is significant. We would like to invite you for an interview to discuss your qualifications further.\n\nSincerely,\n[Hiring Manager Name]"
+  },
+  "WJBISQ-2": {
+    "name": "Ng Shannon",
+    "email": "23138738@imail.sunway.edu.my",
+    "phone": "012-785 2842",
+    "location": "Not specified",
+    "skills": [
+      "Troubleshooting",
+      "Website building (HTML, CSS)",
+      "Digital automation",
+      "Chatbot workflow design (Respond.io)",
+      "Problem-solving",
+      "Positivity",
+      "Self-motivation",
+      "Customer service"
+    ],
+    "education": [
+      {
+        "degree": "Bachelor of Science in Information Technology (Computer Networking and Security)",
+        "university": "Sunway University",
+        "years": "January 2024 \u2013 January 2027",
+        "gpa": "3.58/4.00",
+        "awards": "Dean List in Semester 3 & Semester 4",
+        "certificates": "CCNA: Introduction to Networks - Cisco"
+      }
+    ],
+    "experience": [
+      {
+        "title": "IT Intern",
+        "company": "SoFit Personal Training Studio",
+        "years": "Nov 2024 \u2013 Current",
+        "description": "Helped set up company website, provided input on layout and content, basic troubleshooting, designed and built custom chatbot workflows in Respond.io, handled troubleshooting and communication with Respond.io support."
+      },
+      {
+        "title": "Sales Assistant",
+        "company": "Ninjaz Setia Alam",
+        "years": "May 2023 \u2013 Aug 2023",
+        "description": "Gained product knowledge in electronic gadgets, practiced customer service, built strong teamwork."
+      },
+      {
+        "title": "Teacher Assistant",
+        "company": "Treemendous Setia Alam",
+        "years": "April 2023",
+        "description": "Developed problem-solving and communication skills, assisted with student supervision."
+      }
+    ],
+    "quick summary": "A year 2 student pursuing a Bachelor of Science in Information Technology (Computer Networking and Security) with a 3.58 GPA.  Has experience in IT operations, digital automation (building chatbots), website development (HTML, CSS), and customer service.  Seeks a web or front-end role to gain more experience.",
+    "rating": 3,
+    "Rejection or Acceptance Letter": "Dear Ng Shannon,\n\nThank you for your interest in the cybersecurity professional position at [Company Name]. We appreciate you taking the time to submit your application.\n\nWhile your academic record and some of your experiences are impressive, your current skill set and experience don't fully align with the requirements of this specific role.  We are looking for candidates with more direct experience in cybersecurity.  We wish you the best in your job search and encourage you to reapply when your experience more closely matches our requirements.\n\nSincerely,\nThe [Company Name] Hiring Team"
+  },
+  "WJBISQ-3": {
+    "name": "ALEX RIVERS",
+    "email": "alex.rivers@email.com",
+    "phone": "(601) 123-4567",
+    "location": "123 Tech Avenue, Kuala Lumpur, MY",
+    "skills": [
+      "Python",
+      "Java",
+      "HTML",
+      "CSS",
+      "Cisco Packet Tracer",
+      "TryHackMe",
+      "Git",
+      "Linux",
+      "Networking",
+      "Data Structures",
+      "Intrusion Detection",
+      "Generative AI",
+      "Analytical Thinking",
+      "Leadership",
+      "Problem-solving"
+    ],
+    "education": [
+      {
+        "degree": "Foundation in Science and Technology",
+        "university": "Sunway University",
+        "cgpa": "3.92"
+      }
+    ],
+    "experience": [
+      {
+        "title": "Winner, SUSTHack Hackathon",
+        "description": "A cross-institutional event by Sunway University & Singapore Polytechnic"
+      },
+      {
+        "title": "Winner, EY Business Case Competition",
+        "description": "Led a winning team in solving real-world business challenges"
+      },
+      {
+        "title": "Community Service",
+        "description": "Active in community service projects including food banks and national religious organizations"
+      },
+      {
+        "title": "Committee Member, Sunway Photography Club",
+        "description": "Organized campus-wide photo walks and exhibitions"
+      },
+      {
+        "title": "Resume Parsing App",
+        "description": "Uses Generative AI to enhance ATS efficiency and streamline hiring pipelines (Personal Project)"
+      },
+      {
+        "title": "Home Lab with Honeypot",
+        "description": "Built to analyze attacker behavior and implement intrusion detection (Personal Project)"
+      },
+      {
+        "title": "Inventory Management System",
+        "description": "Designed and deployed for small retail operations using web technologies (Personal Project)"
+      }
+    ],
+    "quick summary": "Alex Rivers is a cybersecurity enthusiast with a strong academic background (3.92 CGPA) and proven experience in hackathons and business case competitions.  He possesses a range of technical skills including programming languages (Python, Java), networking tools (Cisco Packet Tracer), and cybersecurity platforms (TryHackMe).  His personal projects demonstrate initiative and practical application of skills.",
+    "rating": 7,
+    "Rejection or Acceptance Letter": "Dear Alex,\n\nThank you for your interest in the Cybersecurity Professional position at [Company Name]. We were impressed by your academic achievements, technical skills, and demonstrated passion for cybersecurity. Your personal projects, particularly the resume parsing app and honeypot setup, showcase your initiative and practical skills.  While your experience is primarily academic and project-based, we believe your potential is significant. We would like to invite you for an interview to discuss your qualifications further.\n\nSincerely,\n[Hiring Manager Name]"
+  }
+}
