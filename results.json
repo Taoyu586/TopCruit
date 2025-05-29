@@ -1,0 +1,157 @@
+{
+  "XMVKQQ-1": {
+    "name": "Andrew Kim",
+    "email": "andrewhkim3@gmail.com",
+    "phone": "(573) 823-7850",
+    "location": "Chicago, IL",
+    "skills": [
+      "Java",
+      "Python",
+      "C++",
+      "React",
+      "JavaScript",
+      "CI/CD",
+      "Spring",
+      "Kubernetes",
+      "AWS",
+      "Docker",
+      "Android",
+      "UNIX",
+      "Linux",
+      "Agile",
+      "Git",
+      "SQL",
+      "Ansible",
+      "Spinnaker",
+      "Solidity",
+      "Ethereum",
+      "Google AppSheet",
+      "Google Cloud",
+      "Express",
+      "Unity",
+      "C#",
+      "Apache"
+    ],
+    "education": [
+      {
+        "degree": "Master of Science, Computer Science",
+        "university": "Georgia Institute of Technology",
+        "years": "January 2025 - December 2027",
+        "gpa": "4.0"
+      },
+      {
+        "degree": "Bachelor of Science, Computer Science & Information Technology",
+        "university": "University of Missouri - Columbia",
+        "years": "August 2021 - May 2024",
+        "gpa": "3.988 (Major), 3.919 (Cumulative)",
+        "honors": "Summa Cum Laude and Honors Scholar"
+      }
+    ],
+    "experience": [
+      {
+        "title": "Software Engineer",
+        "company": "JPMorgan Chase & Co.",
+        "location": "Chicago, IL",
+        "years": "August 2024 - Present",
+        "description": "Developed and deployed full-stack features; resolved critical compliance incidents; eliminated container downtime; won 1st place among new hires for a full-stack application."
+      },
+      {
+        "title": "Software Engineer Intern",
+        "company": "JPMorgan Chase & Co.",
+        "location": "Chicago, IL",
+        "years": "June 2023 - August 2023",
+        "description": "Implemented cost-saving optimizations; mitigated security vulnerabilities; modernized continuous deployment pipelines."
+      },
+      {
+        "title": "Software Engineer Intern",
+        "company": "Garmin",
+        "location": "Olathe, KS",
+        "years": "May 2022 - August 2022",
+        "description": "Redesigned UI and features; reduced loading time for RV cameras; collaborated in an Agile environment."
+      },
+      {
+        "title": "CSSI Scholar",
+        "company": "Google",
+        "location": "Remote",
+        "years": "July 2021 - August 2021",
+        "description": "Completed a 4-week intensive computer science program; configured coding projects in JavaScript."
+      }
+    ],
+    "quick summary": "Highly accomplished and award-winning computer science graduate with extensive experience in software engineering, particularly at JPMorgan Chase & Co.  Demonstrates strong skills in full-stack development, DevOps, cloud technologies (AWS), and security.  Consistent record of exceeding expectations and achieving top performance in both individual and team projects.",
+    "rating": 9.5,
+    "Rejection or Acceptance Letter": "Dear Andrew,\n\nThank you for your interest in the Cybersecurity Professional position at [Company Name] and for taking the time to submit your application. We were very impressed with your qualifications and accomplishments, particularly your experience at JPMorgan Chase & Co. and your impressive academic record. Your demonstrated skills in full-stack development, DevOps, and cloud technologies align well with the requirements of this role.  We would like to invite you to an interview to discuss your application further.\n\nSincerely,\n[Hiring Manager Name]"
+  },
+  "XMVKQQ-2": {
+    "name": "Tanay Parikh",
+    "email": "tanayparikh7@gmail.com",
+    "phone": "630.854.2527",
+    "location": "Ames, Iowa",
+    "skills": [
+      "Java",
+      "C",
+      "JavaScript",
+      "HTML",
+      "Spring Boot",
+      "Android Studio",
+      "React",
+      "NodeJS",
+      "AngularJS",
+      "JSON",
+      "XCode",
+      "Eclipse",
+      "Visual Studios",
+      "Git",
+      "Linux commands",
+      "MySQL",
+      "NEO4J",
+      "Software Testing",
+      "Marketing",
+      "UI/UX Engineering",
+      "Embedded C Programming",
+      "Project Team Lead",
+      "Agile Development",
+      "CI/CD",
+      "Azure DevOps"
+    ],
+    "education": [
+      {
+        "institution": "Iowa State University",
+        "degree": "Bachelor of Science: Software Engineering",
+        "years": "2018 \u2013 Present"
+      }
+    ],
+    "experience": [
+      {
+        "title": "Software Testing/Marketing",
+        "company": "Wotnow App Startup",
+        "location": "Naperville, Illinois",
+        "years": "04/2016 \u2013 10/2016",
+        "description": "Testing Beta Software on different operating systems and devices, and reporting bugs to the developers to reduce bugs in the public release. Developing various strategies to make the application prominent in the community and increase the total number of downloads."
+      },
+      {
+        "title": "Front-End Engineer/Project Team Lead",
+        "company": "CyShare: Ride Sharing App",
+        "location": "Ames, Iowa",
+        "years": "08/2021-12/2021",
+        "description": "Led a team of four software engineers to design and develop an Android app. Developed an easy to use interactive front-end using Android Studio and implemented functionality like user sign up and user login authentication using JSON. Utilized CI/CD to automate tests and integrate the code. Organized meeting to ensure keeping up with promised deadlines and verify any deviations in the project. Met deadlines and presented the application progress on a monthly basis to extrapolate the progress made in the project."
+      },
+      {
+        "title": "UI/UX Engineer",
+        "company": "Who\u2019s Most Likely To (Card Game)",
+        "location": "Ames, Iowa",
+        "years": "09/2021-12/2021",
+        "description": "Developed an IOS, Android and Web application card game with a team of six software engineers using Native React. Designed a theme for the app which was used throughout app. Designed and developed a \u201cRules Page\u201d and added a button functionality which let the user either start the game from the rules page or take the user back to the \u201cHome Page\u201d with haptic feedback at any moment either button was pressed. The team worked in an Agile environmental and Utilized Azure DevOps to integrate software."
+      },
+      {
+        "title": "Embedded C Programming",
+        "company": "Delivery Robot",
+        "location": "Ames, Iowa",
+        "years": "01/2020-05/2020",
+        "description": "Developed code for a robot and designed it to autonomously find it\u2019s destination address which was identified by four specifically sized poles. The code designed to avoid obstacles like cliffs, walls and different types of poles. Configured registers and GPIO ports so the sensors like the Clift, Ultrasound and infrared sensor would relay back the correct sensor values. Developed a piece of software where the program could return the width of the pole in centimeters from taking in the reading from the ultrasound sensor."
+      }
+    ],
+    "quick summary": "Tanay Parikh is a software engineering student at Iowa State University with experience in software testing, marketing, front-end and UI/UX engineering, and embedded systems programming.  He has led teams on multiple projects, utilizing Agile methodologies and CI/CD. His skills include Java, C, JavaScript, React, Android Studio, and various other tools and technologies.",
+    "rating": 6,
+    "Rejection or Acceptance Letter": "Dear Tanay,\n\nThank you for your interest in the Cybersecurity Professional position at [Company Name]. While your resume demonstrates a strong background in software development and project management, your experience doesn't directly align with the specific cybersecurity requirements of this role. We appreciate you taking the time to apply and wish you the best in your job search.\n\nSincerely,\n[Hiring Manager Name]"
+  }
+}

@@ -8,7 +8,7 @@ from werkzeug.utils import secure_filename
 from dotenv import load_dotenv
 import traceback
 import secrets
-from compare import compare_route
+
 
 # Add PyMuPDF for PDF text extraction
 try:
