@@ -492,15 +492,9 @@ def upload_file():
                 else:
                     # Save the result to JSON file
                     result_key = save_result(parsing_result, job_code)
+                    session["success"] = True
 
-                    # Format the result as pretty JSON
-                    try:
-                        result = json.dumps(parsing_result, indent=2)
-                        print(f"Result JSON formatted, length: {len(result)}")
-                        debug_info['result_length'] = len(result)
-                    except Exception as e:
-                        print(f"Error formatting result: {str(e)}")
-                        error = f"Error formatting result: {str(e)}"
+                    return redirect(url_for('success_page'))
             else:
                 error = "File type not allowed. Please upload a PDF or DOCX file."
 
@@ -626,6 +620,21 @@ def compare_candidates_route():
         comparison_result=comparison_result,
         show_form=False
     )
+
+@app.route('/resume_success')
+def success_page():
+    success = session.get('success')
+    company = session.get('company')
+    job_name = session.get('jobName')
+    if success:
+        return render_template(
+            "upload_Success.html",
+            company = company,
+            job_name = job_name,
+        )
+    else:
+        flash("Please submit a proper resume!")
+        return redirect(url_for("upload_file"))
 
 
 @app.route('/verify_code', methods=['POST'])

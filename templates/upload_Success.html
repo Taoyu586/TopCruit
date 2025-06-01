@@ -20,31 +20,30 @@
         </header>
 
         <main>
-            <div class="upload_resume">
-                <h1>Upload Resume</h1>
+            <div class="thank_you_header">
+                <h1>Thank You!</h1>
                 <div id="jobDetails">
-                    {% if job_code %}
-                    <div class="job-info">
-                        <p><strong>Job Code:</strong> {{ job_code }}</p>
-                        {% if company %}<p><strong>Company:</strong> {{ company }}</p>{% endif %}
-                        {% if job_name %}<p><strong>Position:</strong> {{ job_name }}</p>{% endif %}
+                    {% if company and job_name %}
+                    <div class="congratsmessage">
+                        <p>Your application at <strong>{{ company }}</strong> for the position <strong>{{ job_name }}</strong> has successfully been uploaded.</p>
+                        <p>We wish you all the best for your application!</p>
                     </div>
                     {% endif %}
                 </div>
 
-                <form action="{{ url_for('upload_file') }}"  method="POST" enctype="multipart/form-data">
-                    <div class="dropzone" id="dropzone">
-                        <i class="fas fa-file-upload"></i>
-                        <p>Drag and drop a file here, or</p>
-                        <button type="button" id="browseButton">Browse files</button>
-                        <input type="file" id="fileInput" name="file" hidden>
-                    </div>
+<!--                <form action="{{ url_for('upload_file') }}"  method="POST" enctype="multipart/form-data">-->
+<!--                    <div class="dropzone" id="dropzone">-->
+<!--                        <i class="fas fa-file-upload"></i>-->
+<!--                        <p>Drag and drop a file here, or</p>-->
+<!--                        <button type="button" id="browseButton">Browse files</button>-->
+<!--                        <input type="file" id="fileInput" name="file" hidden>-->
+<!--                    </div>-->
 
-                    <div id="fileNameDiv">
-                        <p id="fileName">File Name: </p>
-                    </div>
-                    <button class="btn_primary" type="submit">Submit</button>
-                </form>
+<!--                    <div id="fileNameDiv">-->
+<!--                        <p id="fileName">File Name: </p>-->
+<!--                    </div>-->
+<!--                    <button class="btn_primary" type="submit">Submit</button>-->
+<!--                </form>-->
             </div>
         </main>
 
