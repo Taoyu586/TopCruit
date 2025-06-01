@@ -4,46 +4,239 @@
         <title>Compare</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="{{ url_for('static', filename='css/topcruit.css') }}" rel="stylesheet">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/topcruit.css') }}">
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
     </head>
     <body>
         <header class="header">
             <a href="home.html"><img src="{{ url_for('static', filename='images/Logo.png') }}" class="logo"></a>
             <div class="resume_profile">
-                 <a href="upload_resume.html">Upload Resume</a>
+                 <a href="{{ url_for('upload_file') }}">Upload Resume</a>
                  <img src="{{ url_for('static', filename='images/Profile.png') }}">
             </div>
         </header>
 
         <main>
-            <div class="compare">
-                <h1>Compare Candidates</h1>
-                <p> For: **{{ job_name }}** at **{{ company }}**</p>
-                <h2>**{{ candidate1_name | default('Candidate 1') }}** vs. **{{ candidate2_name | default('Candidate 2') }}**</h2>
+            <div class="compare-container">
+                <div class="compare">
+                    <h1>Compare Candidates</h1>
+                    <p>For: <strong>{{ job_name }}</strong> at <strong>{{ company }}</strong></p>
+                </div>
 
-            </div>
+                {% if error %}
+                    <div class="error-message">
+                        <strong>Error:</strong> {{ error }}
+                    </div>
+                {% endif %}
 
-            <div>
-                <h3>**{{ candidate1_name }}**</h3>
-                <h5>Overall Suitability</h5>
-                <h5>Technical Skills</h5>
-                <h5>Experiences</h5>
-                <h5>Projects</h5>
-                <h5>Education</h5>
-            </div>
-            <div>
-                <h3>Candidate 2</h3>
-                <h5>Overall Suitability</h5>
-                <h5>Technical Skills</h5>
-                <h5>Experiences</h5>
-                <h5>Projects</h5>
-                <h5>Education</h5>
-            </div>
+                {% if show_form %}
+                    <!-- Candidate Selection Form -->
+                    <div class="selection-form">
+                        <h2>Select Candidates to Compare</h2>
 
+                        {% if all_candidates|length < 2 %}
+                            <div class="error-message">
+                                <strong>Not enough candidates to compare.</strong>
+                                You need at least 2 candidates to perform a comparison.
+                                <a href="{{ url_for('upload_file') }}">Upload more resumes</a>
+                            </div>
+                        {% else %}
+                            <form method="POST" action="{{ url_for('compare_candidates_route') }}">
+                                <div class="form-group">
+                                    <label for="candidate1">Select First Candidate:</label>
+                                    <select name="candidate1" id="candidate1" required>
+                                        <option value="">-- Choose Candidate 1 --</option>
+                                        {% for key, data in all_candidates.items() %}
+                                            <option value="{{ key }}">
+                                                {{ data.get('name', 'Unknown Name') }}
+                                                ({{ data.get('email', 'No email') }})
+                                                - Rating: {{ data.get('rating', 'N/A') }}
+                                            </option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="candidate2">Select Second Candidate:</label>
+                                    <select name="candidate2" id="candidate2" required>
+                                        <option value="">-- Choose Candidate 2 --</option>
+                                        {% for key, data in all_candidates.items() %}
+                                            <option value="{{ key }}">
+                                                {{ data.get('name', 'Unknown Name') }}
+                                                ({{ data.get('email', 'No email') }})
+                                                - Rating: {{ data.get('rating', 'N/A') }}
+                                            </option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+
+                                <button type="submit" class="compare-btn">
+                                    <i class="fas fa-balance-scale"></i> Compare Candidates
+                                </button>
+                            </form>
+                        {% endif %}
+                    </div>
+                {% else %}
+                    <!-- Comparison Results -->
+                     <div class="compare-name">
+                        {% if comparison_result %}
+                        <h2><strong>{{ candidate1_name }}</strong> vs. <strong>{{ candidate2_name }}</strong></h2>
+                     </div>
+                    <div class="comparison-results">
+                        <!-- Candidate 1 Results -->
+                        <div class="candidate-card">
+                            <h3><i class="fas fa-user"></i> {{ candidate1_name }}</h3>
+
+                            <div class="score-section">
+                                <h5>Overall Suitability</h5>
+                                <span class="score-badge {% if comparison_result.get('candidate1 score', 0) >= 7 %}{% elif comparison_result.get('candidate1 score', 0) >= 4 %}medium{% else %}low{% endif %}">
+                                    {{ comparison_result.get('candidate1 score', 'N/A') }}/10
+                                </span>
+                            </div>
+
+                            <div class="score-section">
+                                <h5>Technical Skills</h5>
+                                <span class="score-badge {% if comparison_result.get('candidate1 technical score', 0) >= 7 %}{% elif comparison_result.get('candidate1 technical score', 0) >= 4 %}medium{% else %}low{% endif %}">
+                                    {{ comparison_result.get('candidate1 technical score', 'N/A') }}/10
+                                </span>
+                            </div>
+
+                            <div class="score-section">
+                                <h5>Experience</h5>
+                                <span class="score-badge {% if comparison_result.get('candidate1 experience score', 0) >= 7 %}{% elif comparison_result.get('candidate1 experience score', 0) >= 4 %}medium{% else %}low{% endif %}">
+                                    {{ comparison_result.get('candidate1 experience score', 'N/A') }}/10
+                                </span>
+                            </div>
+
+                            <div class="score-section">
+                                <h5>Projects</h5>
+                                <span class="score-badge {% if comparison_result.get('candidate1 projects score', 0) >= 7 %}{% elif comparison_result.get('candidate1 projects score', 0) >= 4 %}medium{% else %}low{% endif %}">
+                                    {{ comparison_result.get('candidate1 projects score', 'N/A') }}/10
+                                </span>
+                            </div>
+
+                            <div class="score-section">
+                                <h5>Education</h5>
+                                <span class="score-badge {% if comparison_result.get('candidate1 education score', 0) >= 7 %}{% elif comparison_result.get('candidate1 education score', 0) >= 4 %}medium{% else %}low{% endif %}">
+                                    {{ comparison_result.get('candidate1 education score', 'N/A') }}/10
+                                </span>
+                            </div>
+
+                            {% if comparison_result.get('candidate1 strengths') %}
+                                <div class="score-section">
+                                    <h5>Key Strengths</h5>
+                                    <p>{{ comparison_result.get('candidate1 strengths') }}</p>
+                                </div>
+                            {% endif %}
+                        </div>
+
+                        <!-- Candidate 2 Results -->
+                        <div class="candidate-card">
+                            <h3><i class="fas fa-user"></i> {{ candidate2_name }}</h3>
+
+                            <div class="score-section">
+                                <h5>Overall Suitability</h5>
+                                <span class="score-badge {% if comparison_result.get('candidate2 score', 0) >= 7 %}{% elif comparison_result.get('candidate2 score', 0) >= 4 %}medium{% else %}low{% endif %}">
+                                    {{ comparison_result.get('candidate2 score', 'N/A') }}/10
+                                </span>
+                            </div>
+
+                            <div class="score-section">
+                                <h5>Technical Skills</h5>
+                                <span class="score-badge {% if comparison_result.get('candidate2 technical score', 0) >= 7 %}{% elif comparison_result.get('candidate2 technical score', 0) >= 4 %}medium{% else %}low{% endif %}">
+                                    {{ comparison_result.get('candidate2 technical score', 'N/A') }}/10
+                                </span>
+                            </div>
+
+                            <div class="score-section">
+                                <h5>Experience</h5>
+                                <span class="score-badge {% if comparison_result.get('candidate2 experience score', 0) >= 7 %}{% elif comparison_result.get('candidate2 experience score', 0) >= 4 %}medium{% else %}low{% endif %}">
+                                    {{ comparison_result.get('candidate2 experience score', 'N/A') }}/10
+                                </span>
+                            </div>
+
+                            <div class="score-section">
+                                <h5>Projects</h5>
+                                <span class="score-badge {% if comparison_result.get('candidate2 projects score', 0) >= 7 %}{% elif comparison_result.get('candidate2 projects score', 0) >= 4 %}medium{% else %}low{% endif %}">
+                                    {{ comparison_result.get('candidate2 projects score', 'N/A') }}/10
+                                </span>
+                            </div>
+
+                            <div class="score-section">
+                                <h5>Education</h5>
+                                <span class="score-badge {% if comparison_result.get('candidate2 education score', 0) >= 7 %}{% elif comparison_result.get('candidate2 education score', 0) >= 4 %}medium{% else %}low{% endif %}">
+                                    {{ comparison_result.get('candidate2 education score', 'N/A') }}/10
+                                </span>
+                            </div>
+
+                            {% if comparison_result.get('candidate2 strengths') %}
+                                <div class="score-section">
+                                    <h5>Key Strengths</h5>
+                                    <p>{{ comparison_result.get('candidate2 strengths') }}</p>
+                                </div>
+                            {% endif %}
+                        </div>
+
+                            <!-- Overall Comparison -->
+                            <div class="overall-comparison">
+                                <h4><i class="fas fa-chart-line"></i> Overall Analysis</h4>
+
+                                {% if comparison_result.get('Overall suitability') %}
+                                    <div class="score-section">
+                                        <h5>Overall Suitability Assessment</h5>
+                                        <p>{{ comparison_result.get('Overall suitability') }}</p>
+                                    </div>
+                                {% endif %}
+
+                                {% if comparison_result.get('technical skills') %}
+                                    <div class="score-section">
+                                        <h5>Technical Skills Comparison</h5>
+                                        <p>{{ comparison_result.get('technical skills') }}</p>
+                                    </div>
+                                {% endif %}
+
+                                {% if comparison_result.get('experience') %}
+                                    <div class="score-section">
+                                        <h5>Experience Comparison</h5>
+                                        <p>{{ comparison_result.get('experience') }}</p>
+                                    </div>
+                                {% endif %}
+
+                                {% if comparison_result.get('projects') %}
+                                    <div class="score-section">
+                                        <h5>Projects Comparison</h5>
+                                        <p>{{ comparison_result.get('projects') }}</p>
+                                    </div>
+                                {% endif %}
+
+                                {% if comparison_result.get('education') %}
+                                    <div class="score-section">
+                                        <h5>Education Comparison</h5>
+                                        <p>{{ comparison_result.get('education') }}</p>
+                                    </div>
+                                {% endif %}
+
+                                {% if comparison_result.get('recommendation') %}
+                                    <div class="recommendation">
+                                        <h5><i class="fas fa-lightbulb"></i> Final Recommendation</h5>
+                                        <p>{{ comparison_result.get('recommendation') }}</p>
+                                    </div>
+                                {% endif %}
+                            </div>
+                        </div>
+
+                        <div style="margin: 50px; text-align: center;">
+                            <a href="{{ url_for('compare_candidates_route') }}" class="compare-btn">
+                                <i></i> Compare Different Candidates
+                            </a>
+                        </div>
+                    {% endif %}
+                {% endif %}
+            </div>
         </main>
 
         <footer class="footer">
@@ -91,7 +284,54 @@
         </footer>
 
         <script>
+            // Prevent selecting the same candidate in both dropdowns
+            document.getElementById('candidate1').addEventListener('change', function() {
+                const candidate2Select = document.getElementById('candidate2');
+                const selectedValue = this.value;
 
+                // Enable all options in candidate2
+                for (let option of candidate2Select.options) {
+                    option.disabled = false;
+                }
+
+                // Disable the selected option in candidate2
+                if (selectedValue) {
+                    for (let option of candidate2Select.options) {
+                        if (option.value === selectedValue) {
+                            option.disabled = true;
+                        }
+                    }
+                }
+
+                // Reset candidate2 if it has the same value
+                if (candidate2Select.value === selectedValue) {
+                    candidate2Select.value = '';
+                }
+            });
+
+            document.getElementById('candidate2').addEventListener('change', function() {
+                const candidate1Select = document.getElementById('candidate1');
+                const selectedValue = this.value;
+
+                // Enable all options in candidate1
+                for (let option of candidate1Select.options) {
+                    option.disabled = false;
+                }
+
+                // Disable the selected option in candidate1
+                if (selectedValue) {
+                    for (let option of candidate1Select.options) {
+                        if (option.value === selectedValue) {
+                            option.disabled = true;
+                        }
+                    }
+                }
+
+                // Reset candidate1 if it has the same value
+                if (candidate1Select.value === selectedValue) {
+                    candidate1Select.value = '';
+                }
+            });
         </script>
     </body>
 </html>

@@ -153,5 +153,320 @@
     "quick summary": "Tanay Parikh is a software engineering student at Iowa State University with experience in software testing, marketing, front-end and UI/UX engineering, and embedded systems programming.  He has led teams on multiple projects, utilizing Agile methodologies and CI/CD. His skills include Java, C, JavaScript, React, Android Studio, and various other tools and technologies.",
     "rating": 6,
     "Rejection or Acceptance Letter": "Dear Tanay,\n\nThank you for your interest in the Cybersecurity Professional position at [Company Name]. While your resume demonstrates a strong background in software development and project management, your experience doesn't directly align with the specific cybersecurity requirements of this role. We appreciate you taking the time to apply and wish you the best in your job search.\n\nSincerely,\n[Hiring Manager Name]"
+  },
+  "XMVKQQ-3": {
+    "name": "Tanay Parikh",
+    "email": "tanayparikh7@gmail.com",
+    "phone": "630.854.2527",
+    "location": "Ames, Iowa",
+    "skills": [
+      "Java",
+      "C",
+      "JavaScript",
+      "HTML",
+      "Spring Boot",
+      "Android Studio",
+      "React",
+      "NodeJS",
+      "AngularJS",
+      "JSON",
+      "XCode",
+      "Eclipse",
+      "Visual Studios",
+      "Git",
+      "Linux commands",
+      "MySQL",
+      "NEO4J",
+      "Software Testing",
+      "Marketing",
+      "UI/UX Engineering",
+      "Embedded C Programming",
+      "Project Team Lead",
+      "Agile Development",
+      "CI/CD",
+      "User Authentication (JSON)",
+      "Android Development",
+      "iOS Development",
+      "Web Application Development",
+      "Azure DevOps"
+    ],
+    "education": [
+      {
+        "institution": "Iowa State University",
+        "degree": "Bachelor of Science: Software Engineering",
+        "location": "Ames, Iowa",
+        "years": "2018 \u2013 Present"
+      }
+    ],
+    "experience": [
+      {
+        "title": "Software Testing/Marketing",
+        "company": "Wotnow App Startup",
+        "location": "Naperville, Illinois",
+        "years": "04/2016 \u2013 10/2016",
+        "description": "Testing Beta Software on different operating systems and devices, and reporting bugs to the developers to reduce bugs in the public release. Developing various strategies to make the application prominent in the community and increase the total number of downloads."
+      }
+    ],
+    "quick summary": "Tanay Parikh is a software engineering student at Iowa State University with experience in software testing, marketing, and various software development projects.  His projects demonstrate skills in Android and iOS development, web application development, UI/UX design, and embedded systems programming. He has experience with various programming languages, tools, and databases.",
+    "rating": 6,
+    "Rejection or Acceptance Letter": "Dear Tanay,\n\nThank you for your interest in the Cybersecurity professional position at [Company Name]. While your resume showcases a strong background in software development and a diverse skillset, your experience doesn't directly align with the specific cybersecurity requirements of this role. We appreciate you taking the time to apply and wish you the best in your job search.\n\nSincerely,\n[Hiring Manager Name]"
+  },
+  "XMVKQQ-4": {
+    "name": "MEEKAIL KAMAL MUGDHO",
+    "email": "meekail.mugdho@gmail.com",
+    "phone": "+60 146 814 093",
+    "location": "Kuala Lumpur, Malaysia",
+    "skills": [
+      "Front-end Development",
+      "React.js",
+      "HTML/CSS",
+      "JavaScript",
+      "MySQL",
+      "Java",
+      "C#",
+      "C++",
+      "Python",
+      "TASM",
+      "Solidity",
+      "Agile SCRUM",
+      "Problem-solving",
+      "Innovation",
+      "Leadership",
+      "Collaboration",
+      "Project Management",
+      "Server Management",
+      "IT Support",
+      "NLP",
+      "AI",
+      "Blockchain"
+    ],
+    "education": [
+      {
+        "institution": "Asia Pacific University of Technology & Innovation (APU)",
+        "location": "Kuala Lumpur, Malaysia",
+        "degree": "Bachelor of Computer Science (Hons)",
+        "gpa": "3.75",
+        "achievements": "Vice Chancellor\u2019s List (2023/2024)"
+      }
+    ],
+    "experience": [
+      {
+        "title": "Founder \u2013 SCRIPT",
+        "years": "2019 \u2013 2022",
+        "description": "Founded a digital comic studio, led a team of 6, secured sponsorships, published a comic, and helped creators monetize their work."
+      },
+      {
+        "title": "Front End Developer \u2013 SCRIPT",
+        "years": "2019 \u2013 2022",
+        "description": "Designed, developed, and maintained the studio\u2019s website; managed server performance and resolved technical issues."
+      },
+      {
+        "title": "Intern Software Engineer \u2013 INNOVATIVE SOFT",
+        "years": "Feb 2022 \u2013 Jun 2022",
+        "description": "Developed e-commerce features in an Agile SCRUM environment; collaborated on scalable system solutions."
+      },
+      {
+        "title": "Technical Assistant Trainee \u2013 ASIA PACIFIC UNIVERSITY",
+        "years": "Sep 2024 \u2013 Nov 2024",
+        "description": "Troubleshot and maintained computer systems; gained practical IT support experience."
+      },
+      {
+        "title": "Peer Leadership \u2013 ASIA PACIFIC UNIVERSITY",
+        "years": "Mar 2025 \u2013 Present",
+        "description": "Supported lab sessions in C Programming and System Network Administration; guided students and acted as a liaison between faculty and peers."
+      }
+    ],
+    "quick summary": "A meticulous and ambitious Computer Science student with a strong academic record (3.75 GPA) and experience in front-end development, project leadership, and founding a digital comic studio.  Possesses diverse technical skills and has participated in hackathons and CTFs.",
+    "rating": 7,
+    "Rejection or Acceptance Letter": "Dear Meekail,\n\nThank you for your interest in the cybersecurity internship at [Company Name]. While your resume demonstrates a strong foundation in software development and a diverse skillset, your experience doesn't directly align with the specific cybersecurity focus of this role.  We appreciate you taking the time to apply and wish you the best in your job search.\n\nSincerely,\n[Hiring Manager Name]"
+  },
+  "WJBISQ-1": {
+    "name": "MUHAMMAD AZIM FAIZAL",
+    "email": "azimfaizal@email.com",
+    "phone": "+60-12-345-6789",
+    "location": "Kuala Lumpur, Malaysia",
+    "skills": [
+      "Technical Support",
+      "System Administration",
+      "Software Deployment",
+      "Troubleshooting",
+      "Network Maintenance",
+      "System Performance Improvement",
+      "Windows Server",
+      "Linux (Ubuntu, CentOS)",
+      "macOS",
+      "TCP/IP",
+      "DNS",
+      "DHCP",
+      "Cisco Routers",
+      "Firewall Configuration",
+      "Python",
+      "Bash",
+      "PowerShell",
+      "Active Directory",
+      "VMware",
+      "Git",
+      "Visual Studio Code",
+      "Wireshark",
+      "Microsoft 365",
+      "Exchange",
+      "Jira",
+      "MySQL",
+      "AWS (basic)",
+      "ITIL Foundation",
+      "Documentation",
+      "Support Skills",
+      "Hyper-V",
+      "SQLite",
+      "Tkinter",
+      "Flask",
+      "EC2",
+      "S3",
+      "Route 53"
+    ],
+    "education": [
+      {
+        "degree": "Bachelor of Information Technology (Hons.)",
+        "university": "Universiti Teknologi Malaysia (UTM)",
+        "graduationYear": 2022,
+        "CGPA": "3.56 / 4.00",
+        "project": "Cloud-Based Helpdesk Ticketing System Using Python & Flask"
+      }
+    ],
+    "experience": [
+      {
+        "title": "IT Support Executive",
+        "company": "FusionTech Sdn Bhd",
+        "location": "Kuala Lumpur",
+        "dates": "Mar 2022 \u2013 Present",
+        "description": "Provided Tier 1 and Tier 2 support to over 200 employees across 3 branch offices. Installed, configured, and maintained hardware, software, and printers. Managed user accounts and group policies through Active Directory. Assisted in migrating company email system to Microsoft 365 with zero downtime. Documented IT processes and created internal knowledge base articles."
+      },
+      {
+        "title": "System Administrator Intern",
+        "company": "UTM IT Department",
+        "location": "Johor Bahru",
+        "dates": "Aug 2021 \u2013 Jan 2022",
+        "description": "Monitored server uptime and assisted in daily backups and patch management. Supported the setup of virtual machines using VMware and Hyper-V. Helped resolve networking issues and upgraded antivirus systems across campus labs."
+      }
+    ],
+    "quick summary": "A recent IT graduate with 3+ years of experience in IT support and system administration.  Proficient in various operating systems, networking protocols, programming languages, and IT tools.  Experience includes managing user accounts, migrating email systems, and troubleshooting network issues. Holds CompTIA A+ and ITIL Foundation certifications.",
+    "rating": 4,
+    "Rejection or Acceptance Letter": "Dear Muhammad Azim Faizal,\n\nThank you for your interest in the Cybersecurity Professional position at [Company Name]. We appreciate you taking the time to submit your application.\n\nYour resume demonstrates a strong foundation in IT support and system administration, and your skills and experience align well with many aspects of the role.  Your projects and certifications further showcase your technical abilities. \n\nWhile your background is impressive, we have decided to move forward with candidates whose experience more closely aligns with the specific cybersecurity requirements of this particular position.  We wish you the best in your job search.\n\nSincerely,\nThe [Company Name] Hiring Team"
+  },
+  "WJBISQ-2": {
+    "name": "Tanay Parikh",
+    "email": "tanayparikh7@gmail.com",
+    "phone": "630.854.2527",
+    "location": "Ames, Iowa",
+    "skills": [
+      "Java",
+      "C",
+      "JavaScript",
+      "HTML",
+      "Spring Boot",
+      "Android Studio",
+      "React",
+      "NodeJS",
+      "AngularJS",
+      "JSON",
+      "XCode",
+      "Eclipse",
+      "Visual Studios",
+      "Git",
+      "Linux commands",
+      "MySQL",
+      "NEO4J",
+      "Software Testing",
+      "Marketing",
+      "UI/UX Engineering",
+      "Embedded C Programming",
+      "Project Team Lead",
+      "Agile Development",
+      "CI/CD",
+      "Azure DevOps"
+    ],
+    "education": [
+      {
+        "institution": "Iowa State University",
+        "degree": "Bachelor of Science: Software Engineering",
+        "years": "2018 \u2013 Present"
+      }
+    ],
+    "experience": [
+      {
+        "title": "Software Testing/Marketing",
+        "company": "Wotnow App Startup",
+        "location": "Naperville, Illinois",
+        "years": "04/2016 \u2013 10/2016",
+        "description": "Testing Beta Software on different operating systems and devices, and reporting bugs to the developers to reduce bugs in the public release. Developing various strategies to make the application prominent in the community and increase the total number of downloads."
+      },
+      {
+        "title": "Front-End Engineer/Project Team Lead",
+        "company": "CyShare: Ride Sharing App",
+        "location": "Ames, Iowa",
+        "years": "08/2021-12/2021",
+        "description": "Led a team of four software engineers to design and develop an Android app. Developed an easy to use interactive front-end using Android Studio and implemented functionality like user sign up and user login authentication using JSON. Utilized CI/CD to automate tests and integrate the code. Organized meeting to ensure keeping up with promised deadlines and verify any deviations in the project. Met deadlines and presented the application progress on a monthly basis to extrapolate the progress made in the project."
+      },
+      {
+        "title": "UI/UX Engineer",
+        "company": "Who\u2019s Most Likely To (Card Game)",
+        "location": "Ames, Iowa",
+        "years": "09/2021-12/2021",
+        "description": "Developed an IOS, Android and Web application card game with a team of six software engineers using Native React. Designed a theme for the app which was used throughout app. Designed and developed a \u201cRules Page\u201d and added a button functionality which let the user either start the game from the rules page or take the user back to the \u201cHome Page\u201d with haptic feedback at any moment either button was pressed. The team worked in an Agile environmental and Utilized Azure DevOps to integrate software."
+      },
+      {
+        "title": "Embedded C Programming",
+        "company": "Delivery Robot",
+        "location": "Ames, Iowa",
+        "years": "01/2020-05/2020",
+        "description": "Developed code for a robot and designed it to autonomously find it\u2019s destination address which was identified by four specifically sized poles. The code designed to avoid obstacles like cliffs, walls and different types of poles. Configured registers and GPIO ports so the sensors like the Clift, Ultrasound and infrared sensor would relay back the correct sensor values. Developed a piece of software where the program could return the width of the pole in centimeters from taking in the reading from the ultrasound sensor."
+      }
+    ],
+    "quick summary": "Tanay Parikh is a software engineering student at Iowa State University with experience in software testing, marketing, front-end development, UI/UX engineering, and embedded systems programming.  He has led teams on multiple projects, demonstrating skills in Agile development, CI/CD, and utilizing various technologies like React, Android Studio, and JSON. His resume highlights a strong technical skillset and project experience, but lacks direct cybersecurity experience.",
+    "rating": 6,
+    "Rejection or Acceptance Letter": "Dear Tanay,\n\nThank you for your interest in the Cybersecurity Professional position at [Company Name]. We appreciate you taking the time to submit your application.\n\nWhile your resume demonstrates a strong background in software engineering and development, the position requires specific experience in cybersecurity principles and practices.  Your skills and experience are impressive, and we encourage you to apply for other suitable roles within our company should they align with your background.\n\nWe wish you the best in your job search.\n\nSincerely,\n[Hiring Manager Name]\n[Company Name]"
+  },
+  "WJBISQ-3": {
+    "name": "MUHAMMAD AZIM FAIZAL",
+    "email": "azimfaizal@email.com",
+    "phone": "+60-12-345-6789",
+    "location": "Kuala Lumpur, Malaysia",
+    "skills": [
+      "Operating Systems: Windows Server, Linux (Ubuntu, CentOS), macOS",
+      "Networking: TCP/IP, DNS, DHCP, Cisco Routers, Firewall configuration",
+      "Programming: Python, Bash, PowerShell",
+      "Tools: Active Directory, VMware, Git, Visual Studio Code, Wireshark",
+      "Software & Systems: Microsoft 365, Exchange, Jira, MySQL, AWS (basic)",
+      "ITIL Foundation Certified",
+      "Strong Documentation & Support Skills"
+    ],
+    "education": [
+      {
+        "degree": "Bachelor of Information Technology (Hons.)",
+        "university": "Universiti Teknologi Malaysia (UTM)",
+        "graduationYear": 2022,
+        "cgpa": "3.56 / 4.00",
+        "project": "Cloud-Based Helpdesk Ticketing System Using Python & Flask"
+      }
+    ],
+    "experience": [
+      {
+        "title": "IT Support Executive",
+        "company": "FusionTech Sdn Bhd",
+        "location": "Kuala Lumpur",
+        "dates": "Mar 2022 \u2013 Present",
+        "description": "Provided Tier 1 and Tier 2 support to over 200 employees across 3 branch offices. Installed, configured, and maintained hardware, software, and printers. Managed user accounts and group policies through Active Directory. Assisted in migrating company email system to Microsoft 365 with zero downtime. Documented IT processes and created internal knowledge base articles."
+      },
+      {
+        "title": "System Administrator Intern",
+        "company": "UTM IT Department",
+        "location": "Johor Bahru",
+        "dates": "Aug 2021 \u2013 Jan 2022",
+        "description": "Monitored server uptime and assisted in daily backups and patch management. Supported the setup of virtual machines using VMware and Hyper-V. Helped resolve networking issues and upgraded antivirus systems across campus labs."
+      }
+    ],
+    "quick summary": "A recent graduate with 3+ years of experience in IT support and system administration.  Proficient in various operating systems, networking protocols, and programming languages.  Experience with Active Directory, VMware, and cloud technologies (AWS basic). Holds CompTIA A+ and ITIL Foundation certifications.",
+    "rating": 7.5,
+    "Rejection or Acceptance Letter": "Dear Muhammad Azim Faizal,\n\nThank you for your interest in the Cybersecurity Professional position at [Company Name]. We appreciate you taking the time to submit your application.\n\nWhile your resume demonstrates a strong foundation in IT support and system administration, and your skills and experience align with some aspects of the role, we feel that your experience in cybersecurity-specific areas is currently limited.  We wish you the best in your job search and encourage you to apply again in the future as your experience grows.\n\nSincerely,\nThe [Company Name] Hiring Team"
   }
 }
