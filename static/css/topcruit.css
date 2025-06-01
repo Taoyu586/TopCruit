@@ -793,7 +793,7 @@ form input[list] {
 
 
 
-#compare
+/*compare*/
 .compare-container {
     max-width: 1200px;
     margin: 100px 50px;
@@ -931,3 +931,16 @@ form input[list] {
     margin: 20px 0;
 }
 
+/*upload success*/
+.thank_you_header {
+    place-self: center;
+    place-items: center;
+    max-width: fit-content;
+    margin: 30px 20px;
+    padding: 50px;
+    background: #f8f9fa;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+.congratsmessage {
+    padding: 50px;
+}
