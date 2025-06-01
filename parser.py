@@ -169,6 +169,8 @@ def compare_candidates_with_gemini(candidate1_data, candidate2_data, job_details
         Provide a detailed comparison focusing on the following aspects.
         In addition to a descriptive sentence, provide a numerical score from 1 to 10 (where 10 is excellent and 1 is very poor) for each candidate on their overall suitability, technical skills, experiences, projects and education.
         Follow these fields strictly.
+        Ensure that both candidates are judged equally regardless of position and ensure that the rating remains consistent between prompts.
+        Do not use previous conversation as context.
 
         Return it as a JSON object with the following fields: 
         - "Overall suitability": a short but detailed paragraph stating who is a stronger candidate overall and why
@@ -309,7 +311,7 @@ def parse_with_gemini_text(text, model_name="gemini-1.5-flash"):
                             -education: Education of the person 
                             -experience: Where else has the person worked for or what experiences does the person have
                             -quick summary: Summarise important parts of the resume
-                            -rating: Overall rating of the hireability of the person applying to a normal company as a cybersecurity professional
+                            -rating: Overall rating of the hireability of the person applying to a normal company
                             -Rejection or Acceptance Letter
 
                             Here is the resume text:
