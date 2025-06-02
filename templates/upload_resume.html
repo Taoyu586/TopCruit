@@ -13,9 +13,20 @@
     <body>
         <header class="header">
             <a href="home.html"><img src="{{ url_for('static', filename='images/Logo.png') }}" class="logo"></a>
+            <a href="home.html"><img src="{{ url_for('static', filename='images/Company.png') }}" class="company"></a>
+
             <div class="resume_profile">
-                 <a href="/upload_resume">Upload Resume</a>
-                 <img src="{{ url_for('static', filename='images/Profile.png') }}">
+                 <a href="job_code.html">Upload Resume</a>
+                 <a href="candidate_detail.html"><img src="{{ url_for('static', filename='images/Profile.png') }}"></a>
+            </div>
+            <div class="hamburger" onclick="toggleMenu()">☰</div>
+            <div class="mobile_menu" id="mobileMenu">
+                <a href="home.html">Home</a>
+                <a href="#about">About</a>
+                <a href="#how">How it Works</a>
+                <a href="#contact">Contact</a>
+                <a href="signup.html">Upload Resume</a>
+                <a href="profile.html">Profile</a>
             </div>
         </header>
 
@@ -53,8 +64,8 @@
                 <div class="footer_col">
                     <ul>
                         <h4>About Us</h4>
-                        <li><a href="#">Our Story</a></li>
-                        <li><a href="#">Our Team</a></li>
+                        <li><a href="about_us.html">Our Story</a></li>
+                        <li><a href="about_us.html">Our Team</a></li>
                     </ul>
                 </div>
                 <div class="footer_col">
@@ -91,7 +102,7 @@
                 </ul>
             </div>
         </footer>
-            <script>
+            <script src="'topcruit.js" defer>
               //Dropzone Logic
               const dropzone = document.getElementById('dropzone');
               const fileInput = document.getElementById('fileInput');

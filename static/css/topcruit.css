@@ -417,7 +417,7 @@ form p {
     border-radius: 10px;
     cursor: pointer;
     transition: 0.3s ease;
-    width: 100%;
+    width: 300px;
 }
 
 .dropzone p {
@@ -469,7 +469,7 @@ form input[list] {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 80px 0;
+    padding: 50px 0;
     gap: 15px;
     font-size: 20px;
 }
