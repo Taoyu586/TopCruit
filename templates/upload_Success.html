@@ -12,10 +12,13 @@
  </head>
     <body>
         <header class="header">
-            <a href="home.html"><img src="{{ url_for('static', filename='images/Logo.png') }}" class="logo"></a>
+            <div class="logo_title">
+                <a href="home.html"><img src="{{ url_for('static', filename='images/Logo.png') }}" class="logo"></a>
+                <a href="home.html"><img src="{{ url_for('static', filename='images/Company.png') }}" class="company"></a>
+            </div>
             <div class="resume_profile">
-                 <a href="/upload_resume">Upload Resume</a>
-                 <img src="{{ url_for('static', filename='images/Profile.png') }}">
+                <a href="/upload_resume">Upload Resume</a>
+                <img src="{{ url_for('static', filename='images/Profile.png') }}">
             </div>
         </header>
 

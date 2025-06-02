@@ -1,24 +1,26 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Upload Resume</title>
+        <title>Home</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="topcruit.css" rel="stylesheet">
+        <link href="{{ url_for('static', filename='css/topcruit.css') }}" rel="stylesheet">
+        <link rel="icon" href="images/Logo.png" type="image/png">
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
- </head>
+    </head>
+
     <body>
         <header class="header">
             <div class="logo_title">
-                <a href="home.html"><img src="images/Logo.png" class="logo"></a>
-                <a href="home.html"><img src="images/Company.png" class="company"></a>
+                <a href="home.html"><img src="{{ url_for('static', filename='images/Logo.png') }}" class="logo"></a>
+                <a href="home.html"><img src="{{ url_for('static', filename='images/Company.png') }}" class="company"></a>
             </div>
             <div class="resume_profile">
-                 <a href="job_code.html">Upload Resume</a>
-                 <a href="candidate_detail.html"><img src="images/Profile.png"></a>
+                 <a href="login.html">Upload Resume</a>
+                 <a href="login.html"><img src="{{ url_for('static', filename='images/Profile.png') }}"></a>
             </div>
             <div class="hamburger" onclick="toggleMenu()">☰</div>
             <div class="mobile_menu" id="mobileMenu">
@@ -32,18 +34,17 @@
         </header>
 
         <main>
-            <div class="upload_resume">
-                <h1>Upload Resume</h1>
-                <div id="jobDetails"></div>
-                
-                <div class="dropzone" id="dropzone">
-                    <i class="fas fa-file-upload"></i>
-                    <p>Drag and drop a file here, or</p>
-                    <button>Browse files</button>
-                    <input type="file" id="fileInput" hidden>
+            <div class="home_content">
+                <div class="home_description">
+                    <h1>Rank smarter.</h1>
+                    <h1>Hire Faster.</h1>
+                    <h3>AI-driven rankings and centralized resume collection for smarter, faster hiring.</h3>
+                    <div class="home_button">
+                        <a href="profile.html"><button class="btn_primary">TRY NOW</button></a>
+                        <a href="profile.html"><button class="btn_secondary">LEARN MORE</button></a>
+                    </div>
                 </div>
-
-                <button class="btn_primary" type="submit">Submit</button>
+                <image class="home_pic" src="{{ url_for('static', filename='images/Home.jpeg') }}"></image>
             </div>
         </main>
 
@@ -90,6 +91,6 @@
                 </ul>
             </div>
         </footer>
-        <script src="topcruit.js" defer></script>
+        <script src="topcruit.js"></script>
     </body>
 </html>

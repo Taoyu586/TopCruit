@@ -5,6 +5,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="{{ url_for('static', filename='css/topcruit.css') }}" rel="stylesheet">
+        <link rel="icon" href="{{ url_for('static', filename='images/Logo.png') }}" type="image/png">        
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,10 +13,22 @@
  </head>
     <body>
         <header class="header">
-            <a href="home.html"><img src="{{ url_for('static', filename='images/Logo.png') }}" class="logo"></a>
+            <div class="logo_title">
+                <a href="home.html"><img src="{{ url_for('static', filename='images/Logo.png') }}" class="logo"></a>
+                <a href="home.html"><img src="{{ url_for('static', filename='images/Company.png') }}" class="company"></a>
+            </div>
             <div class="resume_profile">
                  <a href="/upload_resume">Upload Resume</a>
                  <img src="{{ url_for('static', filename='images/Profile.png') }}">
+            </div>
+            <div class="hamburger" onclick="toggleMenu()">☰</div>
+            <div class="mobile_menu" id="mobileMenu">
+                <a href="home.html">Home</a>
+                <a href="#about">About</a>
+                <a href="#how">How it Works</a>
+                <a href="#contact">Contact</a>
+                <a href="signup.html">Upload Resume</a>
+                <a href="profile.html">Profile</a>
             </div>
         </header>
 
@@ -53,8 +66,8 @@
                 <div class="footer_col">
                     <ul>
                         <h4>About Us</h4>
-                        <li><a href="#">Our Story</a></li>
-                        <li><a href="#">Our Team</a></li>
+                        <li><a href="about_us.html">Our Story</a></li>
+                        <li><a href="about_us.html">Our Team</a></li>
                     </ul>
                 </div>
                 <div class="footer_col">
@@ -91,7 +104,7 @@
                 </ul>
             </div>
         </footer>
-            <script>
+             <script>
               //Dropzone Logic
               const dropzone = document.getElementById('dropzone');
               const fileInput = document.getElementById('fileInput');
