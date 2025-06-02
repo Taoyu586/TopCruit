@@ -41,32 +41,11 @@ img, video {
     margin: 0;
 }
 
-.nav_link {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 70px;
-    margin: 0 auto;
-}
-
-.nav_link a {
-    text-decoration: none;
-    font-family: 'Poppins', sans-serif;
-    font-size: clamp(0.8em, 2.5vw, 1.1em);
-    color: #ffffff;
-    font-weight: 500;
-}
-
-.nav_link a:hover {
-    color:rgb(223, 223, 223);
-}
-
 .resume_profile {
     display:flex;
     align-items: center;
     color:#ffffff;
-    gap: 10px;
+    gap: 30px;
 }
 
 .resume_profile a {
@@ -95,15 +74,15 @@ img, video {
 .mobile_menu {
     display: none;
     flex-direction: column;
-    position: absolute;
-    top: 70px;
-    right: 0;
+    position: absolute;  
+    top: 70px;        
+    right: 0;       
     background-color: #0077B6;
     width: 200px;
     padding: 15px;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    z-index: 1000;
+    z-index: 1000; 
 }
 
 .mobile_menu.show {
@@ -214,7 +193,7 @@ h1 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 180px 0;
+    padding: 210px 0;
     gap: 30px;
 }
 
@@ -409,7 +388,7 @@ form p {
     position: absolute;
     left: 20px;
     top: 50%;
-    transform: translateY(-50%);
+    transform: translateY(-50%); 
 }
 
 .google_icon {
@@ -418,7 +397,7 @@ form p {
     position: absolute;
     left: 12px;
     top: 50%;
-    transform: translateY(-50%);
+    transform: translateY(-50%); 
 }
 
 .invoice {
@@ -474,8 +453,8 @@ form input[list] {
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;
-    margin: 0 0 8px 0;
-    padding: 10px;
+    margin: 0 0 8px 0; 
+    padding: 10px; 
 }
 
 .personal_button {
@@ -493,26 +472,6 @@ form input[list] {
     padding: 80px 0;
     gap: 15px;
     font-size: 20px;
-}
-
-.upload_resume form {
-    width: 100%;
-    min-width: initial;
-    margin: 0;
-    padding: 0;
-    border: none;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-    background: transparent;
-}
-
-/* Override the general form styles for this specific use case */
-.upload_resume form button.btn_primary {
-    min-width: 200px;
-    width: auto;
-    border-radius: 20px;
 }
 
 .upload_resume h1 {
@@ -554,28 +513,31 @@ form input[list] {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
-    gap: 20px;
+    gap: 30px;
     padding: 80px 0;
 }
 
 .dashboard_job {
     display: flex;
     flex-direction: column;
+    gap: 10px;
     width: 50%;
 }
 
 .dashboard_button {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    margin-top: 70px;
     width: 20%;
     gap: 20px;
+    align-items: center;
 }
 
 .dashboard_button button {
     width: 100%;
+    max-width: 300px;
     border-radius: 10px;
+    justify-content: center;
     padding: 25px;
 }
 
@@ -592,6 +554,308 @@ form input[list] {
     padding: 10px 20px;
     margin: 10px 0;
     font-size: 17px;
+}
+
+.job_list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.job_list a {
+    color: black;
+    text-decoration: none;
+}
+
+.job_listing {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 35px;
+    background-color: #B0C4DE;
+    border-radius: 20px;
+    gap: 20px;
+}
+
+.job_description, .job_applied {
+    display: flex;
+    flex-direction: column;
+}
+
+.job_applied {
+    align-items: flex-end;
+}
+
+.job_description ul {
+    list-style-position: inside;
+}
+
+.job_applied h1 {
+    font-size: 4em;
+    margin: 0;
+}
+
+.job_applied h1,
+.job_applied h2 {
+    margin: 0;
+    line-height: 1.1; 
+}
+
+#addJobForm {
+    height: 40%;
+}
+
+/* Job Details */
+.jobDetail {
+  padding: 60px;
+  margin: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+.jobDetail_content {
+  display: flex;
+  flex-direction: column;
+  margin-top: 15px;
+  gap: 15px;
+  align-items: flex-start;
+}
+
+.jobDetail_title {
+  padding-left: 35px;
+  margin-top: -20px;
+}
+
+.jobDetail_title h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.jobDetail_info, .applicant_section {
+  flex: 1 1 50%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  background-color: #B0C4DE;
+  padding: 35px;
+  border-radius: 20px;
+  gap: 20px;
+}
+
+.jobDetail_info ul {
+  list-style-type: disc;
+  padding-left: 1.3rem;        
+  margin: 0;
+}
+
+.jobDetail_panel {
+  flex: 1 1 45%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.jobDetail_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.jobDetail_buttons {
+  display: flex;
+  gap: 30px;
+}
+
+.jobDetail_buttons button,
+.jobDetail_header button {
+  height: 60px;
+}
+
+.applied_display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+}
+
+.applied_count {
+  font-size: 2.8rem;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.applied_label {
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Applicant section container */
+.jobDetail_applicant {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.applicant_list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Individual applicant cards */
+.applicant_card {
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  background-color: #0077B680;
+  border-radius: 20px;
+}
+.applicant_card:hover {
+  cursor: pointer;
+}
+
+.applicant_fit {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.applicant_details {
+  list-style-position: outside;
+  padding-left: 1.2em;
+  margin: 0;
+}
+
+.applicant_details li {
+  margin-bottom: 0.5em;
+}
+
+.pastExperience_list {
+  padding-left: 1.5em; 
+  margin-top: 0.3em;
+}
+
+/* Skills Styling */
+.skills_container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.skill_pill {
+  background-color: #0077B6B2; 
+  color: #ffffff; 
+  padding: 0.25rem 0.75rem;
+  border-radius: 0.375rem; 
+  font-size: 1rem;
+  display: inline-block;
+}
+
+/* Applicant Page */
+.applicantContent {
+    display: flex;
+    justify-content: center;
+    padding: 60px;
+    margin: 30px;
+    gap: 30px;
+}
+
+.applicantInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 35%;
+    gap: 30px;
+}
+
+
+.applicant_header {
+    display:flex;
+    gap: 20px;
+}
+
+.applicant_letter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #B0C4DE;
+    padding: 40px;
+    border-radius: 20px;
+    gap: 20px;
+}
+
+.job_section ul {
+  padding-left: 1.5em;  
+  margin-top: 0;
+}
+
+/* Analytics */
+.analytics {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    flex-direction: column;
+}
+
+/* Our Team */
+.company_overview_section {
+    max-width: 800px;
+    margin: 0 auto; 
+    text-align: center; 
+    padding: 40px 20px;
+}
+
+.company_overview_section p {
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.company_overview_section h2 {
+    font-size: 2rem;
+    color: #004e89;
+    margin-bottom: 15px;
+}
+
+.team_section {
+    background-color: #e6ecf3;
+    padding: 50px 20px;
+}
+
+.team_section h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 40px;
+    color: #004e89;
+}
+
+.team_grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px; 
+}
+
+.team_member_card {
+    background-color: white;
+    border-radius: 16px;
+    padding: 30px; 
+    text-align: center;
+    width: 280px; 
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.team_member_card img {
+    width: 130px;      
+    height: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
 }
 
 /* Footer */
@@ -625,7 +889,7 @@ form input[list] {
     margin-bottom: 20px;
     font-weight: 500;
     position: relative;
-
+    
 }
 
 .footer_col h4::before{
@@ -658,8 +922,8 @@ form input[list] {
 }
 
 .footer_divide {
-    border: 1px solid #0077B6;
-    width: 80%;
+    border: 1px solid #0077B6; 
+    width: 80%; 
     margin: 20px auto;
 
 }
@@ -671,7 +935,7 @@ form input[list] {
     align-items: center;
     width: 100%;
     gap: 30px;
-
+    
 }
 
 .footer_bottom h4 {
@@ -751,6 +1015,98 @@ form input[list] {
         text-align: center;
         justify-content: center;
     }
+    .dashboard_job,
+    .dashboard_button {
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .dashboard_content {
+        gap: 20px;
+        padding: 40px 0;
+        margin: 0px 20px;
+    }
+
+    .dashboard_button {
+        margin-top: 0;
+        align-items: center;
+    }
+
+    .dashboard_button button {
+        padding: 15px;
+    }
+
+    .jobDetail {
+        flex-direction: column;
+        padding: 20px;
+        margin: 15px;
+        gap: 20px;
+    }
+
+    .jobDetail_info, .applicant_section {
+        max-width: 100%;
+        padding: 20px;
+    }
+
+    .jobDetail_title {
+        padding-left: 15px;
+        margin-top: 0;
+    }
+
+    .jobDetail_title h1 {
+        font-size: 1.8rem;
+    }
+
+    .jobDetail_header {
+        justify-content: center;
+    }
+
+    .jobDetail_buttons {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .jobDetail_buttons button,
+    .jobDetail_header button {
+        width: 100%;
+        height: 50px;
+    }
+
+    .applied_count {
+        font-size: 2rem;
+    }
+
+    .jobDetail_panel {
+        width: 100%;
+    }
+
+    .applicant_card {
+        padding: 20px;
+    }
+
+    .applicantContent {
+        flex-direction: column;
+        padding: 30px;
+        margin: 15px;
+        gap: 20px;
+    }
+
+    .applicantInfo {
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .applicant_letter {
+        padding: 25px;
+    }
+
+    .applicant_header {
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+    }
+
     .footer_col {
         width: 70%;
         margin-bottom: 30px;
@@ -785,9 +1141,9 @@ form input[list] {
   .hamburger {
     display: none;
   }
-
+  
   .mobile_menu {
-    display: none !important;
+    display: none !important; 
   }
 }
 
