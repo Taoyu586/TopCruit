@@ -147,7 +147,7 @@ def get_all_candidates_for_job(job_code, filename="results.json"):
 
 
 # ADDED: Compare candidates function
-def compare_candidates_with_gemini(candidate1_data, candidate2_data, job_details, model_name="gemini-1.5-flash"):
+def compare_candidates_with_gemini(candidate1_data, candidate2_data, job_details, model_name="gemini-2.5-flash"):
     try:
         print(f"Using model: {model_name}")
         url = f"https://generativelanguage.googleapis.com/v1/models/{model_name}:generateContent"
@@ -282,7 +282,7 @@ def extract_text_from_pdf(path):
     return None
 
 
-def parse_with_gemini_text(text, model_name="gemini-1.5-flash"):
+def parse_with_gemini_text(text, model_name="gemini-2.5-flash"):
     """Process text with Gemini API"""
     try:
         print(f"Using model: {model_name}")
@@ -399,7 +399,7 @@ def parse_resume(filepath):
     print(f"Successfully extracted {len(text)} characters of text")
 
     # Try models in order of preference
-    models_to_try = ["gemini-1.5-flash", "gemini-1.5-pro"]
+    models_to_try = ["gemini-2.5-flash", "gemini-2.5-pro"]
 
     for model in models_to_try:
         print(f"Trying model: {model}")
@@ -695,6 +695,6 @@ def api_parse():
 if __name__ == '__main__':
     print("\n===== RESUME PARSER STARTED =====")
     print(f"API Key (first 5 chars): {API_KEY[:5]}... (length: {len(API_KEY)})")
-    print("Models available: gemini-1.5-flash, gemini-1.5-pro")
+    print("Models available: gemini-2.5-flash, gemini-2.5-pro")
     print("Open http://127.0.0.1:5000 in your browser to use the interface")
     app.run(debug=True)
