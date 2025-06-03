@@ -1152,9 +1152,10 @@ form input[list] {
 
 /*compare*/
 .compare-container {
+    place-self: center;
     max-width: 1200px;
-    margin: 100px 50px;
-    padding: 200px 20px;
+    margin: 10px 50px;
+    padding: 20px 20px;
 }
 .compare {
     margin: 30px 50px;
@@ -1165,6 +1166,7 @@ form input[list] {
 }
 .selection-form {
     background: #f8f9fa;
+    width: 600px;
     padding: 30px;
     border-radius: 10px;
     margin: 20px 50px;

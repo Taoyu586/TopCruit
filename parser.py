@@ -510,7 +510,7 @@ def upload_file():
     )
 
 
-# ADDED: Complete compare candidates route
+# Complete compare candidates route
 @app.route('/compare_candidates', methods=['GET', 'POST'])
 def compare_candidates_route():
     job_code = session.get("jobCode")

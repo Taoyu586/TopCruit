@@ -13,8 +13,10 @@
     </head>
     <body>
         <header class="header">
-            <a href="home.html"><img src="{{ url_for('static', filename='images/Logo.png') }}" class="logo"></a>
-            <div class="resume_profile">
+            <div class="logo_title">
+                <a href="home.html"><img src="{{ url_for('static', filename='images/Logo.png') }}" class="logo"></a>
+                <a href="home.html"><img src="{{ url_for('static', filename='images/Company.png') }}" class="company"></a>
+            </div>            <div class="resume_profile">
                  <a href="{{ url_for('upload_file') }}">Upload Resume</a>
                  <img src="{{ url_for('static', filename='images/Profile.png') }}">
             </div>
@@ -82,104 +84,103 @@
                     </div>
                 {% else %}
                     <!-- Comparison Results -->
-                     <div class="compare-name">
-                        {% if comparison_result %}
+                    {% if comparison_result %}
                         <h2><strong>{{ candidate1_name }}</strong> vs. <strong>{{ candidate2_name }}</strong></h2>
-                     </div>
-                    <div class="comparison-results">
-                        <!-- Candidate 1 Results -->
-                        <div class="candidate-card">
-                            <h3><i class="fas fa-user"></i> {{ candidate1_name }}</h3>
 
-                            <div class="score-section">
-                                <h5>Overall Suitability</h5>
-                                <span class="score-badge {% if comparison_result.get('candidate1 score', 0) >= 7 %}{% elif comparison_result.get('candidate1 score', 0) >= 4 %}medium{% else %}low{% endif %}">
-                                    {{ comparison_result.get('candidate1 score', 'N/A') }}/10
-                                </span>
-                            </div>
+                        <div class="comparison-results">
+                            <!-- Candidate 1 Results -->
+                            <div class="candidate-card">
+                                <h3><i class="fas fa-user"></i> {{ candidate1_name }}</h3>
 
-                            <div class="score-section">
-                                <h5>Technical Skills</h5>
-                                <span class="score-badge {% if comparison_result.get('candidate1 technical score', 0) >= 7 %}{% elif comparison_result.get('candidate1 technical score', 0) >= 4 %}medium{% else %}low{% endif %}">
-                                    {{ comparison_result.get('candidate1 technical score', 'N/A') }}/10
-                                </span>
-                            </div>
-
-                            <div class="score-section">
-                                <h5>Experience</h5>
-                                <span class="score-badge {% if comparison_result.get('candidate1 experience score', 0) >= 7 %}{% elif comparison_result.get('candidate1 experience score', 0) >= 4 %}medium{% else %}low{% endif %}">
-                                    {{ comparison_result.get('candidate1 experience score', 'N/A') }}/10
-                                </span>
-                            </div>
-
-                            <div class="score-section">
-                                <h5>Projects</h5>
-                                <span class="score-badge {% if comparison_result.get('candidate1 projects score', 0) >= 7 %}{% elif comparison_result.get('candidate1 projects score', 0) >= 4 %}medium{% else %}low{% endif %}">
-                                    {{ comparison_result.get('candidate1 projects score', 'N/A') }}/10
-                                </span>
-                            </div>
-
-                            <div class="score-section">
-                                <h5>Education</h5>
-                                <span class="score-badge {% if comparison_result.get('candidate1 education score', 0) >= 7 %}{% elif comparison_result.get('candidate1 education score', 0) >= 4 %}medium{% else %}low{% endif %}">
-                                    {{ comparison_result.get('candidate1 education score', 'N/A') }}/10
-                                </span>
-                            </div>
-
-                            {% if comparison_result.get('candidate1 strengths') %}
                                 <div class="score-section">
-                                    <h5>Key Strengths</h5>
-                                    <p>{{ comparison_result.get('candidate1 strengths') }}</p>
+                                    <h5>Overall Suitability</h5>
+                                    <span class="score-badge {% if comparison_result.get('candidate1 score', 0) >= 7 %}{% elif comparison_result.get('candidate1 score', 0) >= 4 %}medium{% else %}low{% endif %}">
+                                        {{ comparison_result.get('candidate1 score', 'N/A') }}/10
+                                    </span>
                                 </div>
-                            {% endif %}
-                        </div>
 
-                        <!-- Candidate 2 Results -->
-                        <div class="candidate-card">
-                            <h3><i class="fas fa-user"></i> {{ candidate2_name }}</h3>
-
-                            <div class="score-section">
-                                <h5>Overall Suitability</h5>
-                                <span class="score-badge {% if comparison_result.get('candidate2 score', 0) >= 7 %}{% elif comparison_result.get('candidate2 score', 0) >= 4 %}medium{% else %}low{% endif %}">
-                                    {{ comparison_result.get('candidate2 score', 'N/A') }}/10
-                                </span>
-                            </div>
-
-                            <div class="score-section">
-                                <h5>Technical Skills</h5>
-                                <span class="score-badge {% if comparison_result.get('candidate2 technical score', 0) >= 7 %}{% elif comparison_result.get('candidate2 technical score', 0) >= 4 %}medium{% else %}low{% endif %}">
-                                    {{ comparison_result.get('candidate2 technical score', 'N/A') }}/10
-                                </span>
-                            </div>
-
-                            <div class="score-section">
-                                <h5>Experience</h5>
-                                <span class="score-badge {% if comparison_result.get('candidate2 experience score', 0) >= 7 %}{% elif comparison_result.get('candidate2 experience score', 0) >= 4 %}medium{% else %}low{% endif %}">
-                                    {{ comparison_result.get('candidate2 experience score', 'N/A') }}/10
-                                </span>
-                            </div>
-
-                            <div class="score-section">
-                                <h5>Projects</h5>
-                                <span class="score-badge {% if comparison_result.get('candidate2 projects score', 0) >= 7 %}{% elif comparison_result.get('candidate2 projects score', 0) >= 4 %}medium{% else %}low{% endif %}">
-                                    {{ comparison_result.get('candidate2 projects score', 'N/A') }}/10
-                                </span>
-                            </div>
-
-                            <div class="score-section">
-                                <h5>Education</h5>
-                                <span class="score-badge {% if comparison_result.get('candidate2 education score', 0) >= 7 %}{% elif comparison_result.get('candidate2 education score', 0) >= 4 %}medium{% else %}low{% endif %}">
-                                    {{ comparison_result.get('candidate2 education score', 'N/A') }}/10
-                                </span>
-                            </div>
-
-                            {% if comparison_result.get('candidate2 strengths') %}
                                 <div class="score-section">
-                                    <h5>Key Strengths</h5>
-                                    <p>{{ comparison_result.get('candidate2 strengths') }}</p>
+                                    <h5>Technical Skills</h5>
+                                    <span class="score-badge {% if comparison_result.get('candidate1 technical score', 0) >= 7 %}{% elif comparison_result.get('candidate1 technical score', 0) >= 4 %}medium{% else %}low{% endif %}">
+                                        {{ comparison_result.get('candidate1 technical score', 'N/A') }}/10
+                                    </span>
                                 </div>
-                            {% endif %}
-                        </div>
+
+                                <div class="score-section">
+                                    <h5>Experience</h5>
+                                    <span class="score-badge {% if comparison_result.get('candidate1 experience score', 0) >= 7 %}{% elif comparison_result.get('candidate1 experience score', 0) >= 4 %}medium{% else %}low{% endif %}">
+                                        {{ comparison_result.get('candidate1 experience score', 'N/A') }}/10
+                                    </span>
+                                </div>
+
+                                <div class="score-section">
+                                    <h5>Projects</h5>
+                                    <span class="score-badge {% if comparison_result.get('candidate1 projects score', 0) >= 7 %}{% elif comparison_result.get('candidate1 projects score', 0) >= 4 %}medium{% else %}low{% endif %}">
+                                        {{ comparison_result.get('candidate1 projects score', 'N/A') }}/10
+                                    </span>
+                                </div>
+
+                                <div class="score-section">
+                                    <h5>Education</h5>
+                                    <span class="score-badge {% if comparison_result.get('candidate1 education score', 0) >= 7 %}{% elif comparison_result.get('candidate1 education score', 0) >= 4 %}medium{% else %}low{% endif %}">
+                                        {{ comparison_result.get('candidate1 education score', 'N/A') }}/10
+                                    </span>
+                                </div>
+
+                                {% if comparison_result.get('candidate1 strengths') %}
+                                    <div class="score-section">
+                                        <h5>Key Strengths</h5>
+                                        <p>{{ comparison_result.get('candidate1 strengths') }}</p>
+                                    </div>
+                                {% endif %}
+                            </div>
+
+                            <!-- Candidate 2 Results -->
+                            <div class="candidate-card">
+                                <h3><i class="fas fa-user"></i> {{ candidate2_name }}</h3>
+
+                                <div class="score-section">
+                                    <h5>Overall Suitability</h5>
+                                    <span class="score-badge {% if comparison_result.get('candidate2 score', 0) >= 7 %}{% elif comparison_result.get('candidate2 score', 0) >= 4 %}medium{% else %}low{% endif %}">
+                                        {{ comparison_result.get('candidate2 score', 'N/A') }}/10
+                                    </span>
+                                </div>
+
+                                <div class="score-section">
+                                    <h5>Technical Skills</h5>
+                                    <span class="score-badge {% if comparison_result.get('candidate2 technical score', 0) >= 7 %}{% elif comparison_result.get('candidate2 technical score', 0) >= 4 %}medium{% else %}low{% endif %}">
+                                        {{ comparison_result.get('candidate2 technical score', 'N/A') }}/10
+                                    </span>
+                                </div>
+
+                                <div class="score-section">
+                                    <h5>Experience</h5>
+                                    <span class="score-badge {% if comparison_result.get('candidate2 experience score', 0) >= 7 %}{% elif comparison_result.get('candidate2 experience score', 0) >= 4 %}medium{% else %}low{% endif %}">
+                                        {{ comparison_result.get('candidate2 experience score', 'N/A') }}/10
+                                    </span>
+                                </div>
+
+                                <div class="score-section">
+                                    <h5>Projects</h5>
+                                    <span class="score-badge {% if comparison_result.get('candidate2 projects score', 0) >= 7 %}{% elif comparison_result.get('candidate2 projects score', 0) >= 4 %}medium{% else %}low{% endif %}">
+                                        {{ comparison_result.get('candidate2 projects score', 'N/A') }}/10
+                                    </span>
+                                </div>
+
+                                <div class="score-section">
+                                    <h5>Education</h5>
+                                    <span class="score-badge {% if comparison_result.get('candidate2 education score', 0) >= 7 %}{% elif comparison_result.get('candidate2 education score', 0) >= 4 %}medium{% else %}low{% endif %}">
+                                        {{ comparison_result.get('candidate2 education score', 'N/A') }}/10
+                                    </span>
+                                </div>
+
+                                {% if comparison_result.get('candidate2 strengths') %}
+                                    <div class="score-section">
+                                        <h5>Key Strengths</h5>
+                                        <p>{{ comparison_result.get('candidate2 strengths') }}</p>
+                                    </div>
+                                {% endif %}
+                            </div>
 
                             <!-- Overall Comparison -->
                             <div class="overall-comparison">
@@ -229,9 +230,9 @@
                             </div>
                         </div>
 
-                        <div style="margin: 50px; text-align: center;">
+                        <div style="margin-top: 30px; text-align: center;">
                             <a href="{{ url_for('compare_candidates_route') }}" class="compare-btn">
-                                <i></i> Compare Different Candidates
+                                <i class="fas fa-redo"></i> Compare Different Candidates
                             </a>
                         </div>
                     {% endif %}
