@@ -4,8 +4,8 @@
         <title>About Us</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="topcruit.css" rel="stylesheet">
-        <link rel="icon" href="images/Logo.png" type="image/png">
+        <link href="{{ url_for('static', filename='css/topcruit.css') }}" rel="stylesheet">
+        <link rel="icon" href="{{ url_for('static', filename='images/Logo.png') }}" type="image/png">        
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,14 +13,14 @@
     </head>
 
     <body>
-                <header class="header">
+        <header class="header">
             <div class="logo_title">
-                <a href="home.html"><img src="images/Logo.png" class="logo"></a>
-                <a href="home.html"><img src="images/Company.png" class="company"></a>
+                <a href="home.html"><img src="{{ url_for('static', filename='images/Logo.png') }}" class="logo"></a>
+                <a href="home.html"><img src="{{ url_for('static', filename='images/Company.png') }}" class="company"></a>
             </div>
             <div class="resume_profile">
                  <a href="login.html">Upload Resume</a>
-                 <a href="login.html"><img src="images/Profile.png"></a>
+                 <a href="login.html"><img src="{{ url_for('static', filename='images/Profile.png') }}"></a>
             </div>
             <div class="hamburger" onclick="toggleMenu()">☰</div>
             <div class="mobile_menu" id="mobileMenu">
@@ -52,24 +52,24 @@
                 <h2>Meet Our Team</h2>
                 <div class="team_grid">
                 <div class="team_member_card">
-                    <img src="images/YingEr.jpg" alt="Ying Er Photo">
+                    <img src="{{ url_for('static', filename='images/YingEr.jpg') }}" alt="Ying Er Photo">
                     <h3>Tiew Ying Er</h3>
                     <p>Product Strategist</p>
                 </div>
                 <div class="team_member_card">
-                    <img src="images/TaoYu.jpg" alt="Tao Yu Photo">
+                    <img src="{{ url_for('static', filename='images/Isaac.jpeg') }}" alt="Isaac Photo">
+                    <h3>Isaac Chong Xin Xuan</h3>
+                    <p>AI Engineer</p>
+                <div class="team_member_card">
+                    <img src="{{ url_for('static', filename='images/TaoYu.jpg') }}" alt="Tao Yu Photo">
                     <h3>Tang Tao Yu</h3>
                     <p>Lead Developer</p>
                 </div>
                 <div class="team_member_card">
-                    <img src="images/JieHui.jpg" alt="Jie Hui Photo">
+                    <img src="{{ url_for('static', filename='images/JieHui.jpg') }}" alt="Jie Hui Photo">
                     <h3>Chen Jie Hui</h3>
                     <p>UX/UI Designer</p>
                 </div>
-                <div class="team_member_card">
-                    <img src="images/Isaac.jpg" alt="Isaac Photo">
-                    <h3>Isaac Chong Xin Xuan</h3>
-                    <p>AI Engineer</p>
                 </div>
                 </div>
             </section>

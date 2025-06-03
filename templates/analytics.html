@@ -4,8 +4,8 @@
         <title>Analytics</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="topcruit.css" rel="stylesheet">
-        <link rel="icon" href="images/Logo.png" type="image/png">
+        <link href="{{ url_for('static', filename='css/topcruit.css') }}" rel="stylesheet">
+        <link rel="icon" href="{{ url_for('static', filename='images/Logo.png') }}" type="image/png">        
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,13 +15,13 @@
     <body>
         <header class="header">
             <div class="logo_title">
-                <a href="recruiter_home.html"><img src="images/Logo.png" class="logo"></a>
-                <a href="recruiter_home.html"><img src="images/Company.png" class="company"></a>
+                <a href="recruiter_home.html"><img src="{{ url_for('static', filename='images/Logo.png') }}" class="logo"></a>
+                <a href="recruiter_home.html"><img src="{{ url_for('static', filename='images/Company.png') }}" class="company"></a>
             </div>
             <div class="resume_profile">
                  <a href="candidate_comparison.html">Candidate Comparison</a>
                  <a href="dashboard.html">Dashboard</a>
-                 <a href="recruiter_detail.html"><img src="images/Profile.png"></a>
+                 <a href="recruiter_detail.html"><img src="{{ url_for('static', filename='images/Profile.png') }}"></a>
             </div>
             <div class="hamburger" onclick="toggleMenu()">☰</div>
             <div class="mobile_menu" id="mobileMenu">
