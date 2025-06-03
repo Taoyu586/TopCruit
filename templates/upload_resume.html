@@ -104,50 +104,50 @@
                 </ul>
             </div>
         </footer>
-             <script>
-              //Dropzone Logic
-              const dropzone = document.getElementById('dropzone');
-              const fileInput = document.getElementById('fileInput');
-              const browseButton = document.getElementById('browseButton');
+        <script>
+            //Dropzone Logic
+            const dropzone = document.getElementById('dropzone');
+            const fileInput = document.getElementById('fileInput');
+            const browseButton = document.getElementById('browseButton');
 
-              if (dropzone && fileInput && browseButton) {
-                // Handle browse button click - prevent event bubbling
-                browseButton.addEventListener('click', (e) => {
-                  e.stopPropagation(); // This prevents the dropzone click from firing
-                  fileInput.click();
-                });
+            if (dropzone && fileInput && browseButton) {
+            // Handle browse button click - prevent event bubbling
+            browseButton.addEventListener('click', (e) => {
+                e.stopPropagation(); // This prevents the dropzone click from firing
+                fileInput.click();
+            });
 
-                // Handle dropzone click (but not when clicking the button)
-                dropzone.addEventListener('click', (e) => {
-                  // Don't trigger if the click was on the browse button
-                  if (e.target !== browseButton) {
-                    fileInput.click();
-                  }
-                });
-
-                dropzone.addEventListener('dragover', (e) => {
-                  e.preventDefault();
-                  dropzone.style.backgroundColor = "#e0f7ff";
-                });
-
-                dropzone.addEventListener('dragleave', () => {
-                  dropzone.style.backgroundColor = "";
-                });
-
-                dropzone.addEventListener('drop', (e) => {
-                  e.preventDefault();
-                  dropzone.style.backgroundColor = "";
-                  const files = e.dataTransfer.files;
-                  fileInput.files = files;
-                  console.log('Dropped files:', files);
-                });
-              }
-
-              document.getElementById('fileInput').addEventListener('change', function() {
-                if (this.files.length > 0) {
-                    document.getElementById('fileName').textContent = 'Selected file: ' + this.files[0].name;
+            // Handle dropzone click (but not when clicking the button)
+            dropzone.addEventListener('click', (e) => {
+                // Don't trigger if the click was on the browse button
+                if (e.target !== browseButton) {
+                fileInput.click();
                 }
-              });
+            });
+
+            dropzone.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                dropzone.style.backgroundColor = "#e0f7ff";
+            });
+
+            dropzone.addEventListener('dragleave', () => {
+                dropzone.style.backgroundColor = "";
+            });
+
+            dropzone.addEventListener('drop', (e) => {
+                e.preventDefault();
+                dropzone.style.backgroundColor = "";
+                const files = e.dataTransfer.files;
+                fileInput.files = files;
+                console.log('Dropped files:', files);
+            });
+            }
+
+            document.getElementById('fileInput').addEventListener('change', function() {
+            if (this.files.length > 0) {
+                document.getElementById('fileName').textContent = 'Selected file: ' + this.files[0].name;
+            }
+            });
         </script>
     </body>
 </html>

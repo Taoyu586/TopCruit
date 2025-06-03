@@ -147,7 +147,7 @@ def get_all_candidates_for_job(job_code, filename="results.json"):
 
 
 # ADDED: Compare candidates function
-def compare_candidates_with_gemini(candidate1_data, candidate2_data, job_details, model_name="gemini-2.5-flash"):
+def compare_candidates_with_gemini(candidate1_data, candidate2_data, job_details, model_name="gemini-1.5-flash"):
     try:
         print(f"Using model: {model_name}")
         url = f"https://generativelanguage.googleapis.com/v1/models/{model_name}:generateContent"
@@ -169,6 +169,8 @@ def compare_candidates_with_gemini(candidate1_data, candidate2_data, job_details
         Provide a detailed comparison focusing on the following aspects.
         In addition to a descriptive sentence, provide a numerical score from 1 to 10 (where 10 is excellent and 1 is very poor) for each candidate on their overall suitability, technical skills, experiences, projects and education.
         Follow these fields strictly.
+        Ensure that both candidates are judged equally regardless of position and ensure that the rating remains consistent between prompts.
+        Do not use previous conversation as context.
 
         Return it as a JSON object with the following fields: 
         - "Overall suitability": a short but detailed paragraph stating who is a stronger candidate overall and why
@@ -280,7 +282,7 @@ def extract_text_from_pdf(path):
     return None
 
 
-def parse_with_gemini_text(text, model_name="gemini-2.5-flash"):
+def parse_with_gemini_text(text, model_name="gemini-1.5-flash"):
     """Process text with Gemini API"""
     try:
         print(f"Using model: {model_name}")
@@ -309,7 +311,7 @@ def parse_with_gemini_text(text, model_name="gemini-2.5-flash"):
                             -education: Education of the person 
                             -experience: Where else has the person worked for or what experiences does the person have
                             -quick summary: Summarise important parts of the resume
-                            -rating: Overall rating of the hireability of the person applying to a normal company as a cybersecurity professional
+                            -rating: Overall rating of the hireability of the person applying to a normal company
                             -Rejection or Acceptance Letter
 
                             Here is the resume text:
@@ -397,7 +399,7 @@ def parse_resume(filepath):
     print(f"Successfully extracted {len(text)} characters of text")
 
     # Try models in order of preference
-    models_to_try = ["gemini-2.5-flash", "gemini-2.5-pro"]
+    models_to_try = ["gemini-1.5-flash", "gemini-1.5-pro"]
 
     for model in models_to_try:
         print(f"Trying model: {model}")
@@ -510,7 +512,7 @@ def upload_file():
     )
 
 
-# Complete compare candidates route
+# ADDED: Complete compare candidates route
 @app.route('/compare_candidates', methods=['GET', 'POST'])
 def compare_candidates_route():
     job_code = session.get("jobCode")
@@ -693,6 +695,6 @@ def api_parse():
 if __name__ == '__main__':
     print("\n===== RESUME PARSER STARTED =====")
     print(f"API Key (first 5 chars): {API_KEY[:5]}... (length: {len(API_KEY)})")
-    print("Models available: gemini-2.5-flash, gemini-2.5-pro")
+    print("Models available: gemini-1.5-flash, gemini-1.5-pro")
     print("Open http://127.0.0.1:5000 in your browser to use the interface")
     app.run(debug=True)

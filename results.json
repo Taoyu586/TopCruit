@@ -280,5 +280,71 @@
     "quick summary": "Alex Rivers is a cybersecurity enthusiast with a strong academic background (3.92 CGPA) and proven experience in hackathons and business case competitions.  He possesses a range of technical skills including programming languages (Python, Java), networking tools (Cisco Packet Tracer), and cybersecurity platforms (TryHackMe).  His personal projects demonstrate initiative and practical application of skills, particularly in areas like generative AI and intrusion detection.",
     "rating": 7,
     "Rejection or Acceptance Letter": "Dear Alex,\n\nThank you for your interest in the Cybersecurity Professional position at [Company Name]. We were impressed by your academic achievements, your participation in hackathons and competitions, and your personal projects demonstrating practical application of cybersecurity principles.  While your skills and enthusiasm are promising, we have decided to move forward with candidates who possess more direct professional experience in the field. We wish you the best in your job search.\n\nSincerely,\n[Hiring Manager Name]"
+  },
+  "WJBISQ-5": {
+    "name": "MUHAMMAD AZIM FAIZAL",
+    "email": "azimfaizal@email.com",
+    "phone": "+60-12-345-6789",
+    "location": "Kuala Lumpur, Malaysia",
+    "skills": [
+      "Technical Support",
+      "System Administration",
+      "Software Deployment",
+      "Troubleshooting",
+      "Network Maintenance",
+      "System Performance Improvement",
+      "Windows Server",
+      "Linux (Ubuntu, CentOS)",
+      "macOS",
+      "TCP/IP",
+      "DNS",
+      "DHCP",
+      "Cisco Routers",
+      "Firewall Configuration",
+      "Python",
+      "Bash",
+      "PowerShell",
+      "Active Directory",
+      "VMware",
+      "Git",
+      "Visual Studio Code",
+      "Wireshark",
+      "Microsoft 365",
+      "Exchange",
+      "Jira",
+      "MySQL",
+      "AWS (basic)",
+      "ITIL Foundation Certified",
+      "Documentation",
+      "Support Skills"
+    ],
+    "education": [
+      {
+        "degree": "Bachelor of Information Technology (Hons.)",
+        "university": "Universiti Teknologi Malaysia (UTM)",
+        "graduationYear": 2022,
+        "cgpa": "3.56 / 4.00",
+        "project": "Cloud-Based Helpdesk Ticketing System Using Python & Flask"
+      }
+    ],
+    "experience": [
+      {
+        "title": "IT Support Executive",
+        "company": "FusionTech Sdn Bhd",
+        "location": "Kuala Lumpur",
+        "dates": "Mar 2022 \u2013 Present",
+        "description": "Provided Tier 1 and Tier 2 support to over 200 employees across 3 branch offices. Installed, configured, and maintained hardware, software, and printers. Managed user accounts and group policies through Active Directory. Assisted in migrating company email system to Microsoft 365 with zero downtime. Documented IT processes and created internal knowledge base articles."
+      },
+      {
+        "title": "System Administrator Intern",
+        "company": "UTM IT Department",
+        "location": "Johor Bahru",
+        "dates": "Aug 2021 \u2013 Jan 2022",
+        "description": "Monitored server uptime and assisted in daily backups and patch management. Supported the setup of virtual machines using VMware and Hyper-V. Helped resolve networking issues and upgraded antivirus systems across campus labs."
+      }
+    ],
+    "quick summary": "A dedicated IT Specialist with 3+ years of experience in technical support, system administration, and software deployment.  Proficient in various operating systems, networking protocols, and programming languages. Holds a Bachelor's degree in Information Technology with a strong CGPA and relevant certifications (CompTIA A+, ITIL Foundation).  Experience includes managing user accounts, migrating email systems, and working with cloud technologies.",
+    "rating": 4,
+    "Rejection or Acceptance Letter": "Dear Muhammad Azim Faizal,\n\nThank you for your interest in the position at [Company Name] and taking the time to submit your application. We were impressed with your technical skills, experience, and academic achievements. Your experience at FusionTech Sdn Bhd, particularly your contributions to the Microsoft 365 migration, is noteworthy.  We would like to invite you for an interview to discuss your qualifications further.\n\nPlease let us know your availability for a brief introductory call.\n\nSincerely,\nThe [Company Name] Hiring Team"
   }
 }

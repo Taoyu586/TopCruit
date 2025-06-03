@@ -1214,13 +1214,14 @@ form input[list] {
 .comparison-results {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 30px;
     margin: 30px 50px;
     padding: 0 50px;
     gap: 50px;
+    place-self: center;
 }
 .candidate-card {
     background: white;
+    width: 600px;
     border: 1px solid #ddd;
     border-radius: 10px;
     padding: 25px 30px;

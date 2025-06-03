@@ -27,6 +27,8 @@
                 <div class="compare">
                     <h1>Compare Candidates</h1>
                     <p>For: <strong>{{ job_name }}</strong> at <strong>{{ company }}</strong></p>
+                    <h2><strong>{{ candidate1_name }}</strong> vs. <strong>{{ candidate2_name }}</strong></h2>
+
                 </div>
 
                 {% if error %}
@@ -85,7 +87,6 @@
                 {% else %}
                     <!-- Comparison Results -->
                     {% if comparison_result %}
-                        <h2><strong>{{ candidate1_name }}</strong> vs. <strong>{{ candidate2_name }}</strong></h2>
 
                         <div class="comparison-results">
                             <!-- Candidate 1 Results -->
