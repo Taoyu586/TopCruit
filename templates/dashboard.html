@@ -4,8 +4,8 @@
         <title>Dashboard</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="topcruit.css" rel="stylesheet">
-        <link rel="icon" href="images/Logo.png" type="image/png">
+        <link href="{{ url_for('static', filename='css/topcruit.css') }}" rel="stylesheet">
+        <link rel="icon" href="{{ url_for('static', filename='images/Logo.png') }}" type="image/png">
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,8 +15,8 @@
     <body>
         <header class="header">
             <div class="logo_title">
-                <a href="recruiter_home.html"><img src="images/Logo.png" class="logo"></a>
-                <a href="recruiter_home.html"><img src="images/Company.png" class="company"></a>
+                <a href="{{ url_for('dashboard') }}"><img src="{{ url_for('static', filename='images/Logo.png') }}" class="logo"></a>
+                <a href="{{ url_for('dashboard') }}"><img src="{{ url_for('static', filename='images/Company.png') }}" class="company"></a>
             </div>
             <div class="resume_profile">
                  <a href="candidate_comparison.html">Candidate Comparison</a>
@@ -43,18 +43,58 @@
                     <button class="btn_primary">Report</button>
                 </div>
                 <!-- Hidden Job Form -->
-                    <form id="addJobForm" style="display: none; margin-top: 70px; max-width: 400px;">
-                        <input type="text" id="jobTitle" placeholder="Job Title" required style="margin-bottom: 10px; width: 100%; padding: 8px;">
-                        <input type="text" id="companyName" placeholder="Company Name" required style="margin-bottom: 10px; width: 100%; padding: 8px;">
-                        <input type="text" id="location" placeholder="Location" style="margin-bottom: 10px; width: 100%; padding: 8px;">
-                        <textarea id="description" placeholder="Job Description" rows="4" style="margin-bottom: 10px; width: 100%; padding: 8px;"></textarea>
-                        <textarea id="requirements" placeholder="Requirements (one per line)" rows="4" required style="margin-bottom: 10px; width: 100%; padding: 8px;"></textarea>
-                        <button type="submit" class="btn_primary">Submit Job</button>
-                    </form>
+                <form id="addJobForm" action="{{ url_for('add_job') }}" method="POST" style="display: none; margin-top: 70px; max-width: 400px;">
+                    <input type="text" name="jobTitle" placeholder="Job Title" required style="margin-bottom: 10px; width: 100%; padding: 8px;">
+                    <input type="text" name="companyName" placeholder="Company Name" required style="margin-bottom: 10px; width: 100%; padding: 8px;">
+                    <input type="text" name="location" placeholder="Location" style="margin-bottom: 10px; width: 100%; padding: 8px;">
+                    <textarea name="description" placeholder="Job Description" rows="4" style="margin-bottom: 10px; width: 100%; padding: 8px;"></textarea>
+                    <textarea name="requirements" placeholder="Requirements (one per line)" rows="4" required style="margin-bottom: 10px; width: 100%; padding: 8px;"></textarea>
+                    <button type="submit" class="btn_primary">Submit Job</button>
+                </form>
+
+                <!-- Add flash messages -->
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        <div class="flash-messages">
+                            {% for category, message in messages %}
+                                <div class="alert alert-{{ category }}">{{ message }}</div>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                {% endwith %}
                 <div class="dashboard_job">
                     <h1>Dashboard</h1>
                     <input type="text" id="job_search" placeholder="Search by title or company">
-                    <div id="job-list"></div>
+                    <div id="job-list">
+                        {% for job in jobs %}
+                        <div class="job-card">
+                            <h3>{{ job.job_name }}</h3>
+                            <p><strong>Company:</strong> {{ job.company }}</p>
+                            <p><strong>Job Code:</strong> {{ job.code }}</p>
+                            <p><strong>Candidates:</strong> {{ job.candidates_count }}</p>
+
+                            {% if job.candidates_count > 0 %}
+                            <div class="candidate-dropdown">
+                                <select id="candidates-{{ job.code }}" onchange="viewCandidate('{{ job.code }}', this.value)">
+                                    <option value="">Select a candidate to view</option>
+                                </select>
+                                <button onclick="loadCandidates('{{ job.code }}')" class="btn_secondary">Load Candidates</button>
+                            </div>
+
+                            <div id="candidate-details-{{ job.code }}" style="display: none; margin-top: 15px; padding: 15px; border: 1px solid #ddd;">
+                                <!-- Candidate details will be loaded here -->
+                            </div>
+                            {% else %}
+                            <p><em>No candidates yet</em></p>
+                            {% endif %}
+                            <button onclick="window.location.href='/compare_candidates?job_code={{ job.code }}'"
+                                    class="btn_primary"
+                                    {% if job.candidates_count < 2 %}disabled style="opacity: 0.5; cursor: not-allowed;"{% endif %}>
+                                Compare Candidates
+                            </button>
+                        </div>
+                        {% endfor %}
+                    </div>
 
                 </div>
 
@@ -104,7 +144,127 @@
                 </ul>
             </div>
         </footer>
-        <script src="jobs.js"></script>
-        <script src="topcruit.js"></script>
+        <script src="{{ url_for('static', filename='jobs.js') }}"></script>
+        <script src="{{ url_for('static', filename='topcruit.js') }}"></script>
+
+        <script>
+        function loadCandidates(jobCode) {
+            console.log('Loading candidates for job:', jobCode);
+
+            fetch(`/api/get_candidates/${jobCode}`)
+                .then(response => {
+                    console.log('Response status:', response.status);
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(candidates => {
+                    console.log('Received candidates:', candidates);
+                    console.log('Number of candidates:', candidates.length);
+
+                    const dropdown = document.getElementById(`candidates-${jobCode}`);
+                    console.log('Dropdown element found:', dropdown !== null);
+
+                    if (!dropdown) {
+                        console.error('Dropdown not found for job:', jobCode);
+                        return;
+                    }
+
+                    dropdown.innerHTML = '<option value="">Select a candidate to view</option>';
+
+                    if (candidates.length === 0) {
+                        const option = document.createElement('option');
+                        option.value = '';
+                        option.textContent = 'No candidates found';
+                        dropdown.appendChild(option);
+                        return;
+                    }
+
+                    candidates.forEach((candidate, index) => {
+                        console.log(`Adding candidate ${index}:`, candidate);
+                        const option = document.createElement('option');
+                        option.value = candidate.key;
+                        option.textContent = candidate.display;
+                        dropdown.appendChild(option);
+                    });
+
+                    console.log('Dropdown populated successfully');
+                })
+                .catch(error => {
+                    console.error('Error loading candidates:', error);
+                    alert(`Error loading candidates: ${error.message}`);
+                });
+        }
+
+        function viewCandidate(jobCode, candidateKey) {
+            console.log('Viewing candidate:', candidateKey, 'for job:', jobCode);
+
+            if (!candidateKey) {
+                const detailsDiv = document.getElementById(`candidate-details-${jobCode}`);
+                if (detailsDiv) {
+                    detailsDiv.style.display = 'none';
+                }
+                return;
+            }
+
+            fetch(`/api/get_candidate_details/${candidateKey}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(candidate => {
+                    console.log('Received candidate details:', candidate);
+                    const detailsDiv = document.getElementById(`candidate-details-${jobCode}`);
+
+                    if (!detailsDiv) {
+                        console.error('Details div not found for job:', jobCode);
+                        return;
+                    }
+
+                    detailsDiv.innerHTML = `
+                        <h4>${candidate.name || 'Unknown'}</h4>
+                        <p><strong>Email:</strong> ${candidate.email || 'N/A'}</p>
+                        <p><strong>Phone:</strong> ${candidate.phone || 'N/A'}</p>
+                        <p><strong>Location:</strong> ${candidate.location || 'N/A'}</p>
+                        <p><strong>Skills:</strong> ${candidate.skills || 'N/A'}</p>
+                        <p><strong>Education:</strong> ${candidate.education || 'N/A'}</p>
+                        <p><strong>Experience:</strong> ${candidate.experience || 'N/A'}</p>
+                        <p><strong>Summary:</strong> ${candidate['quick summary'] || 'N/A'}</p>
+                        <p><strong>Rating:</strong> ${candidate.rating || 'N/A'}</p>
+
+                        ${candidate['Rejection or Acceptance Letter'] ?
+                            `<div class="letter-section">
+                                <h5>Assessment Letter:</h5>
+                                <p>${candidate['Rejection or Acceptance Letter']}</p>
+                            </div>` : ''}
+                    `;
+
+                    detailsDiv.style.display = 'block';
+                })
+                .catch(error => {
+                    console.error('Error loading candidate details:', error);
+                    alert(`Error loading candidate details: ${error.message}`);
+                });
+        }
+
+        // Show/hide add job form
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM loaded, setting up form toggle');
+            const showFormBtn = document.getElementById('showFormBtn');
+            const addJobForm = document.getElementById('addJobForm');
+
+            if (showFormBtn && addJobForm) {
+                showFormBtn.addEventListener('click', function() {
+                    const isHidden = addJobForm.style.display === 'none' || addJobForm.style.display === '';
+                    addJobForm.style.display = isHidden ? 'block' : 'none';
+                });
+            } else {
+                console.error('Form or button not found');
+            }
+        });
+        </script>
     </body>
 </html>

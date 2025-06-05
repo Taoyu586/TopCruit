@@ -513,20 +513,49 @@ def upload_file():
 
 
 # ADDED: Complete compare candidates route
+# Replace your compare_candidates_route with this enhanced debug version:
+
 @app.route('/compare_candidates', methods=['GET', 'POST'])
 def compare_candidates_route():
-    job_code = session.get("jobCode")
-    if not job_code:
-        flash("No job content. Please select a job from dashboard.", "warning")
-        return redirect(url_for("share_code"))
+    print(f"\n=== COMPARE ROUTE CALLED ===")
+    print(f"Method: {request.method}")
+    print(f"Args: {request.args}")
+    print(f"Form: {request.form}")
 
-    company = session.get("company")
-    jobName = session.get("jobName")
+    # Get job code from URL parameter, form data, or session
+    job_code = (request.args.get('job_code') or
+                request.form.get('job_code') or
+                session.get("jobCode"))
+    print(f"Job code: {job_code}")
+
+    if not job_code:
+        print("ERROR: No job code provided")
+        flash("No job code provided. Please select a job from dashboard.", "warning")
+        return redirect(url_for("dashboard"))
+
+    # Get job details
+    job_details = get_job_details(job_code)
+    print(f"Job details: {job_details}")
+    if not job_details:
+        print("ERROR: Invalid job code")
+        flash("Invalid job code!", "error")
+        return redirect(url_for("dashboard"))
+
+    company = job_details.get('company')
+    jobName = job_details.get('job_name')
 
     # Get all candidates for this job
     all_candidates = get_all_candidates_for_job(job_code)
+    print(f"All candidates count: {len(all_candidates)}")
+    print(f"Candidate keys: {list(all_candidates.keys())}")
+
+    if not all_candidates:
+        print("ERROR: No candidates found")
+        flash("No candidates found for this job code.", "warning")
+        return redirect(url_for("dashboard"))
 
     if request.method == 'GET':
+        print("Returning selection form")
         # Show the selection form
         return render_template(
             'compare.html',
@@ -538,14 +567,18 @@ def compare_candidates_route():
         )
 
     # POST request - process comparison
+    print("Processing POST request for comparison")
     candidate1_key = request.form.get('candidate1')
     candidate2_key = request.form.get('candidate2')
+    print(f"Candidate 1 key: {candidate1_key}")
+    print(f"Candidate 2 key: {candidate2_key}")
 
     comparison_result = None
     error = None
 
     if not candidate1_key or not candidate2_key:
         error = "Please select 2 candidates to compare"
+        print(f"ERROR: {error}")
         flash(error, "danger")
         return render_template(
             'compare.html',
@@ -559,6 +592,7 @@ def compare_candidates_route():
 
     if candidate1_key == candidate2_key:
         error = "Please select 2 different candidates to compare"
+        print(f"ERROR: {error}")
         flash(error, "danger")
         return render_template(
             'compare.html',
@@ -573,41 +607,45 @@ def compare_candidates_route():
     # Validate candidates belong to this job
     if not (candidate1_key.startswith(f"{job_code}-") and candidate2_key.startswith(f"{job_code}-")):
         error = "Invalid selection: candidates must be from the same job application"
+        print(f"ERROR: {error}")
         flash(error, "danger")
-        return redirect(url_for('share_code'))
+        return redirect(url_for('dashboard'))
 
     # Get candidate data
+    print("Getting candidate data...")
     candidate1_data = get_candidate_results(candidate1_key)
     candidate2_data = get_candidate_results(candidate2_key)
+    print(f"Candidate 1 data found: {candidate1_data is not None}")
+    print(f"Candidate 2 data found: {candidate2_data is not None}")
 
     if not candidate1_data:
         error = f"Candidate data not found for {candidate1_key}. Please ensure the resume was parsed correctly"
+        print(f"ERROR: {error}")
         flash(error, "danger")
-        return redirect(url_for('upload_file'))
+        return redirect(url_for('dashboard'))
 
     if not candidate2_data:
         error = f"Candidate data not found for {candidate2_key}. Please ensure the resume was parsed correctly"
+        print(f"ERROR: {error}")
         flash(error, "danger")
-        return redirect(url_for('upload_file'))
-
-    # Get job details
-    job_details = get_job_details(job_code)
-    if not job_details:
-        error = "Job details not found for this code. Cannot perform comparison. Try again."
-        flash(error, "danger")
-        return redirect(url_for('share_code'))
+        return redirect(url_for('dashboard'))
 
     # Perform comparison
-    print(f"Comparing {candidate1_key} and {candidate2_key} for job {job_code}")
+    print(f"Starting comparison between {candidate1_key} and {candidate2_key}")
     comparison_result = compare_candidates_with_gemini(candidate1_data, candidate2_data, job_details)
+    print(f"Comparison result type: {type(comparison_result)}")
+    print(
+        f"Comparison successful: {'error' not in comparison_result if isinstance(comparison_result, dict) else 'N/A'}")
 
     if isinstance(comparison_result, dict) and "error" in comparison_result:
         error = f"Comparison failed: {comparison_result['error']}"
         if 'details' in comparison_result:
             error += f"\nDetails: {comparison_result['details'][:200]}..."
+        print(f"ERROR: {error}")
         flash(f"Error during comparison: {error}", "danger")
-        return redirect(url_for('upload_file'))
+        return redirect(url_for('dashboard'))
 
+    print("Comparison successful, rendering results")
     flash("Candidates compared successfully!", "success")
 
     return render_template(
@@ -622,6 +660,7 @@ def compare_candidates_route():
         comparison_result=comparison_result,
         show_form=False
     )
+
 
 @app.route('/resume_success')
 def success_page():
@@ -662,6 +701,75 @@ def verify_codes():
         "company": job_details.get("company"),
         "job_name": job_details.get("job_name")
     })
+
+@app.route('/dashboard', methods=['GET', 'POST'])
+def dashboard():
+    job_codes = []
+    if os.path.exists("codes.json"):
+        with open("codes.json", "r") as file:
+            codes_data = json.load(file)
+            for code, details in codes_data.items():
+                candidates_count = len(get_all_candidates_for_job(code))
+                job_codes.append({
+                    'code': code,
+                    'job_name': details['job_name'],
+                    'company': details['company'],
+                    'candidates_count': candidates_count
+                })
+
+    return render_template('dashboard.html', jobs=job_codes)
+
+@app.route('/add_job', methods=['POST'])
+def add_job():
+    job_title = request.form.get('jobTitle')
+    company = request.form.get('companyName')
+    location = request.form.get('location')
+    description = request.form.get('description')
+    requirements = request.form.get('requirements')
+
+    job_code = generate_job_code(job_title, company, "recruiter_dashboard")
+
+    flash(f'Job created successfully! Job Code: {job_code}', 'success')
+    return redirect(url_for('dashboard'))
+
+@app.route('/view_job_candidates/<job_code>')
+def view_job_candidates(job_code):
+    job_details = get_job_details(job_code)
+    if not job_details:
+        flash('Invalid job code!', 'error')
+        return redirect(url_for('dashboard'))
+
+    candidates = get_all_candidates_for_job(job_code)
+
+    return render_template(
+        'job_candidates.html',
+        job_code = job_code,
+        job_details = job_details,
+        candidates = candidates
+    )
+
+@app.route('/api/get_candidates/<job_code>')
+def api_get_candidates(job_code):
+    candidates = get_all_candidates_for_job(job_code)
+
+    candidate_options = []
+    for key, data in candidates.items():
+        name = data.get('name', 'Unknown')
+        email = data.get('email', '')
+        candidate_options.append({
+            'key': key,
+            'display': f"{name} ({email})" if email else name
+        })
+
+    return jsonify(candidate_options)
+
+@app.route('/api/get_candidate_details/<candidate_key>')
+def api_get_candidate_details(candidate_key):
+    candidate = get_candidate_results(candidate_key)
+    if candidate:
+        return jsonify(candidate)
+    else:
+        return jsonify({'error': 'Candidate not found'}), 404
 
 
 @app.route('/clear-session')

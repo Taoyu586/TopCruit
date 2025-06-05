@@ -450,3 +450,74 @@ const jobs = [
   ]
 }
 ];
+
+// Load candidates for a specific job
+function loadCandidates(jobCode) {
+    fetch(`/api/get_candidates/${jobCode}`)
+        .then(response => response.json())
+        .then(candidates => {
+            const dropdown = document.getElementById(`candidates-${jobCode}`);
+            dropdown.innerHTML = '<option value="">Select a candidate to view</option>';
+
+            candidates.forEach(candidate => {
+                const option = document.createElement('option');
+                option.value = candidate.key;
+                option.textContent = candidate.display;
+                dropdown.appendChild(option);
+            });
+        })
+        .catch(error => {
+            console.error('Error loading candidates:', error);
+            alert('Error loading candidates');
+        });
+}
+
+// View candidate details
+function viewCandidate(jobCode, candidateKey) {
+    if (!candidateKey) {
+        document.getElementById(`candidate-details-${jobCode}`).style.display = 'none';
+        return;
+    }
+
+    fetch(`/api/get_candidate_details/${candidateKey}`)
+        .then(response => response.json())
+        .then(candidate => {
+            const detailsDiv = document.getElementById(`candidate-details-${jobCode}`);
+
+            detailsDiv.innerHTML = `
+                <h4>${candidate.name || 'Unknown'}</h4>
+                <p><strong>Email:</strong> ${candidate.email || 'N/A'}</p>
+                <p><strong>Phone:</strong> ${candidate.phone || 'N/A'}</p>
+                <p><strong>Location:</strong> ${candidate.location || 'N/A'}</p>
+                <p><strong>Skills:</strong> ${candidate.skills || 'N/A'}</p>
+                <p><strong>Education:</strong> ${candidate.education || 'N/A'}</p>
+                <p><strong>Experience:</strong> ${candidate.experience || 'N/A'}</p>
+                <p><strong>Summary:</strong> ${candidate['quick summary'] || 'N/A'}</p>
+                <p><strong>Rating:</strong> ${candidate.rating || 'N/A'}</p>
+
+                ${candidate['Rejection or Acceptance Letter'] ?
+                    `<div class="letter-section">
+                        <h5>Assessment Letter:</h5>
+                        <p>${candidate['Rejection or Acceptance Letter']}</p>
+                    </div>` : ''}
+            `;
+
+            detailsDiv.style.display = 'block';
+        })
+        .catch(error => {
+            console.error('Error loading candidate details:', error);
+            alert('Error loading candidate details');
+        });
+}
+
+// Show/hide add job form
+document.addEventListener('DOMContentLoaded', function() {
+    const showFormBtn = document.getElementById('showFormBtn');
+    const addJobForm = document.getElementById('addJobForm');
+
+    if (showFormBtn && addJobForm) {
+        showFormBtn.addEventListener('click', function() {
+            addJobForm.style.display = addJobForm.style.display === 'none' ? 'block' : 'none';
+        });
+    }
+});

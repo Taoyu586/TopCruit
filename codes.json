@@ -18,5 +18,35 @@
     "job_name": "Cybersecurity Professional",
     "company": "Maxis",
     "origin": "Facebook"
+  },
+  "E6AY3Y": {
+    "job_name": "Cybersecurity Professional",
+    "company": "Palo Alto",
+    "origin": "recruiter_dashboard"
+  },
+  "69IKXQ": {
+    "job_name": "Cybersecurity Professional",
+    "company": "Fortinet",
+    "origin": "recruiter_dashboard"
+  },
+  "AQRXCX": {
+    "job_name": "Software Engineer",
+    "company": "Cisco",
+    "origin": "recruiter_dashboard"
+  },
+  "O4CEXN": {
+    "job_name": "Software Engineer",
+    "company": "Maxis",
+    "origin": "recruiter_dashboard"
+  },
+  "OTX3AO": {
+    "job_name": "Software Engineer",
+    "company": "Unifi",
+    "origin": "recruiter_dashboard"
+  },
+  "FW1G19": {
+    "job_name": "Software Engineer",
+    "company": "Time",
+    "origin": "recruiter_dashboard"
   }
 }
