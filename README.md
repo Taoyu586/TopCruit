@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/9db02a60-01fe-4acc-b21a-41db5923dc47)TopCruit is a resume parsing web application designed to help recruiters streamline hiring.
+TopCruit is a resume parsing web application designed to help recruiters streamline hiring.
 It features a job code system that ensures only relevant candidates can apply, reducing application spam.
 Recruiters can post and manage jobs through a dedicated dashboard, view applicant details, and compare candidates side-by-side using AI-generated ratings and insights.
 
