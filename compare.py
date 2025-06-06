@@ -6,6 +6,12 @@ from flask import Flask, Blueprint, request, session, render_template, flash, re
 from dotenv import load_dotenv
 
 load_dotenv()
+
+if not os.getenv('GEMINI_API_KEY'):
+    print("Warning: API_KEY not found in environment variables")
+    print("Please copy .env.example to .env and add your API key")
+
+
 app = Flask(__name__)
 API_KEY = os.getenv('API_KEY')
 
