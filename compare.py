@@ -9,7 +9,7 @@ load_dotenv()
 
 if not os.getenv('GEMINI_API_KEY'):
     print("Warning: API_KEY not found in environment variables")
-    print("Please copy .env.example to .env and add your API key")
+    print("Please add your API key to the enviormental variables file")
 
 
 app = Flask(__name__)
